@@ -8,9 +8,9 @@ import logo from "../../assets/image/logo.png";
 
 
 const durationOptionsList = [
-  { label: "Option1", value: "option1" },
-  { label: "Option2", value: "option2" },
-  { label: "Option3", value: "option3" },
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" },
 ];
 
 const Admindashboard = () => {
@@ -52,11 +52,11 @@ const Admindashboard = () => {
 
   return (
     <>
-      <div className="bg-indigo-50 flex flex-col font-averiaseriflibre items-center justify-start mx-auto w-full">
+      <div className="flex bg-indigo-100 flex-col font-averiaseriflibre items-center justify-start mx-auto w-full">
         <div className="flex md:flex-col flex-row md:gap-[43px] items-start justify-between mx-auto md:px-5 w-full">
           <Sidebar
             onClick={() => collapseSidebar(!collapsed)}
-            className="!sticky !w-[213px] bg-black-900 flex h-screen md:hidden justify-start overflow-auto rounded-tl-[10px] top-[0]"
+            className="!sticky !w-[213px] bg-black-900 flex h-screen md:hidden justify-start  overflow-auto rounded-tl-[10px] top-[0]"
           >
            <div className="login-container">
       <img src={logo} alt="Logo" className="logo" />
@@ -101,7 +101,7 @@ const Admindashboard = () => {
                   padding: "15px 15px 15px 25px",
                   gap: "13px",
                   backgroundColor: "#ffffff",
-                  marginTop: "302px",
+                  marginTop: "55px",
                   color: "#000000",
                   fontWeight: 700,
                   fontSize: "14.08px",
@@ -141,11 +141,11 @@ const Admindashboard = () => {
             </div>
             <div className="vertical-container  mt- -2flex flex-col p-[40px] w-[110%]">
 
-            {/* <div className="flex md:flex-col bg-red-900 flex-row md:gap-[42px] items-start justify-between w-full"> */}
-              <div className="flex md:flex-1 flex-col gap-[25px] items-center justify-start bg-yellow-900w-[63%] md:w-full">
-                <div className="bg-white-A700 flex sm:flex-col flex-row gap-7 items-center justify-start p-[23px] sm:px-5 rounded-[14px] shadow-bs w-full">
+            {/* <div className="flex md:flex-col bg-red-900 flex-row md:gap-[42px] items-start justify-between w-[40] w-full"> */}
+              <div className="flex md:flex-1 flex-col gap-[25px] items-center justify-start bg-yellow-900w-[63%]  md:w-full">
+                <div className=" bg-white-A700 flex sm:flex-col flex-row gap-7 items-center justify-start p-[23px] sm:px-5 rounded-[14px] shadow-bs w-full">
                   <List
-                    className="sm:flex-1 sm:flex-col flex-row gap-[27px] grid sm:grid-cols-1 grid-cols-3 ml-1 sm:ml-[0] w-[73%] sm:w-full"
+                    className="sm:flex-1  sm:flex-col flex-row gap-[27px] grid sm:grid-cols-1 grid-cols-3 ml-1 sm:ml-[0] w-[73%] sm:w-full"
                     orientation="horizontal"
                   >
                     <div className="flex flex-col items-center justify-start w-full">
@@ -157,7 +157,7 @@ const Admindashboard = () => {
                             alt="groupFive"
                           />
                         </Button> */}
-                        <div className="flex flex-col gap-1.5 items-start justify-start">
+                        <div className="flex flex-col  gap-1.5 items-start justify-start">
                           <Text
                             className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
                             size="txtAveriaSerifLibreBold1126"
@@ -420,8 +420,11 @@ const Admindashboard = () => {
                       </div>
                     </div>
                   </div>
+                  
                 </div>
+                
               </div>
+              
               {/* </div> */}
               {/* <div className="flex md:flex-col flex-row gap-[27px] items-center justify-between mt-[76px] w-full">
                   <div className="h-[298px] relative w-[48%] md:w-full">
@@ -668,9 +671,9 @@ const Admindashboard = () => {
                 ))}
               </tr>
             ))} */}
-            <div className="vertical-container flex flex-col p-[40px] w-[35%]">
+            <div className="vertical-container  flex flex-col p-[10px] w-[40%]">
             <SelectBox
-                className="bg-gray-100 sm:flex-1 font-bold leading-[normal] sm:mt-0 my-2 px-1.5 py-[11px] rounded-lg text-[12.67px] text-gray-900 text-left w-[22%] sm:w-full"
+                className="bg-white-A100 sm:flex-1 font-bold leading-[normal] sm:mt-0 my-2 px-1.5 py-[11px] rounded-lg text-[12.67px] ml-auto text-gray-900 text-left w-[22%] sm:w-full"
                 placeholderClassName="text-gray-900"
                 // indicator={
                   // <Img
@@ -682,7 +685,7 @@ const Admindashboard = () => {
                 isSearchable={false}
                 placeholder="Wednesday,6 sep 2023"
                 getOptionLabel={(e) => (
-                  <div className="flex items-center">
+                  <div className="  flex items-center">
                     <Img
                       className="h-[17px] mr-[15px] w-4"
                       src="images/img_calendar.svg"
@@ -828,10 +831,283 @@ const Admindashboard = () => {
           </tbody>
             </table>
       </div>
+      
             </div>
+
           </div>
           </div>
-        {/* </div> */}
+          <div className="vertical-container m-auto h-[410px] ml-[210px]  mt-[-5px] pt-[-px]  flex flex-col p-[4px] w-[45%]">
+
+          <div className="flex md:flex-col  flex-row gap-[27px] items-center justify-between mt-[-35px] w-full">
+                  <div className="h-[298px]  relative w-[48%] md:w-full">
+                    {/* <div className="absolute h-[298px] inset-[0] justify-center  m-auto shadow-bs2 w-[98%]"></div> */}
+                    <div className="absolute h-[297px] md:h-[298px] inset-[0]  rounded-[16px] bg-blue-50 justify-center m-auto w-110 ml-3.5  w-full">
+                      <div className="h-[298px]  m-auto rounded-[16px] w-full"></div>
+                      <div className="absolute flex flex-col gap-[37px]  inset-x-[0] items-center justify-start mx-auto top-[8%] w-[82%]">
+                        <div className="flex flex-row items-start justify-between w-[98%] md:w-full">
+                          <div className="flex flex-col items-center justify-start">
+                            <Text
+                              className="text-[16.89px] text-gray-900 tracking-[-0.34px]"
+                              size="txtAveriaSerifLibreBold1689"
+                            >
+                              GRID
+                            </Text>
+                          </div>
+                          {/* <Img
+                            className="h-[17px] md:h-auto mt-1 object-cover w-4"
+                            src="images/img_iconlylightfilter_17x16.png"
+                            alt="iconlylightfilt_One"
+                          /> */}
+                        </div>
+                        <div className="flex flex-row font-averiasanslibre gap-[5px] items-center justify-evenly w-full">
+                          <div className="flex flex-col gap-[17px] items-start justify-start w-[32%]">
+                            <div className="flex flex-col items-center justify-start w-[45%] md:w-full">
+                              <div className="flex flex-col gap-[5px] items-end justify-start w-full">
+                                <div className="flex flex-row gap-[7px] items-start justify-start mr-0.5 w-[95%] md:w-full">
+                                  <div className="bg-red-A400 h-1 my-[3px] rounded-[50%] w-1"></div>
+                                  <Text
+                                    className="text-[9.85px] text-gray-900"
+                                    size="txtAveriaSansLibreBold985Gray900"
+                                  >
+                                    Yield
+                                  </Text>
+                                </div>
+                                <Text
+                                  className="text-[12.67px] text-gray-900"
+                                  size="txtAveriaSansLibreBold1267Gray900"
+                                >
+                                  85%
+                                </Text>
+                              </div>
+                            </div>
+                            <div className="flex flex-col  items-center justify-start w-[87%] md:w-full">
+                              <div className="flex flex-col  justify-start w-full">
+                                <div className="flex flex-row gap-[7px] items-start justify-start w-full">
+                                  {/* <div className="bg-light_blue-A400 h-1 mb-[5px] bg-red-900  mt-0.5 rounded-[50%] w-1"></div> */}
+                                  <Text
+                                    className="text-[9.85px] text-gray-900"
+                                    size="txtAveriaSansLibreBold985Gray900"
+                                  >
+                                    Consumption
+                                  </Text>
+                                </div>
+                                <Text
+                                  className="md:ml-[0] ml-[11px] mt-1 text-[12.67px] text-gray-900"
+                                  size="txtAveriaSansLibreBold1267Gray900"
+                                >
+                                  40%
+                                </Text>
+                              </div>
+                            </div>
+                            <div className="flex flex-col items-center justify-start w-full">
+                              <div className="flex flex-col justify-start w-full">
+                                <div className="flex flex-row gap-[7px] items-start justify-start w-full">
+                                  <div className="bg-_gray-100 h-1 mb-[5px] mt-0.5 rounded-[50%] w-1"></div>
+                                  <Text
+                                    className="text-[9.85px] text-gray-900"
+                                    size="txtAveriaSansLibreBold985Gray900"
+                                  >
+                                    Energy Balance
+                                  </Text>
+                                </div>
+                                <Text
+                                  className="md:ml-[0] ml-[11px] mt-1 text-[12.67px] text-gray-900"
+                                  size="txtAveriaSansLibreBold1267Gray900"
+                                >
+                                  40%
+                                </Text>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="h-[172px] relative w-[172px]">
+                            <div className="bg-red-A400 h-[172px] m-auto rounded-[50%] w-[172px]"></div>
+                            <div className="!w-[165px] absolute h-[165px] inset-[0] justify-center m-auto overflow-visible">
+                              <CircularProgressbar
+                                className="!w-[165px] absolute h-[165px] inset-[0] justify-center m-auto overflow-visible"
+                                value={25}
+                                counterClockwise
+                                strokeWidth={8}
+                                styles={{
+                                  trail: { strokeWidth: 8, stroke: "#00b7fe" },
+                                  path: {
+                                    strokeLinecap: "square",
+                                    height: "100%",
+                                    transformOrigin: "center",
+                                    transform: "rotate(222deg)",
+                                    stroke: "#d0d2da",
+                                  },
+                                }}
+                              ></CircularProgressbar>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="font-adventpro md:h-[300px] h-[300px] pb-6 relative shadow-bs2 w-[48%] md:w-full">
+                  <div className="absolute h-[297px] md:h-[300px] inset-[0] justify-center mr-2 m-auto w-full">
+                      <div className="  bg-blue-50 h-[297px]  m-auto rounded-[16px] w-full"></div>
+                      <div className="absolute bottom-1/4 flex flex-col gap-[21px] items-start just ify-start right-[2%] w-[90%]">
+                        <div className="flex flex-col items-center justify-start w-full">
+                          <div className="flex flex-col  gap-[5px] items-start justify-start w-full">
+                            <div className="flex flex-row  items-start justify-between w-full">
+                             
+                              <Text
+                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                                size="txtAdventProBold985"
+                              >
+                                Today’s Energy
+                              </Text>
+                              <Text
+                                className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
+                                size="txtAdventProBold985"
+                              >
+                                385kWh
+                              </Text>
+                            </div>
+                            <div className="flex flex-row items-start justify-between w-full">
+                             
+                             <Text
+                               className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                               size="txtAdventProBold985"
+                             >
+                            Monthly Energy
+                             </Text>
+                             <Text
+                               className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
+                               size="txtAdventProBold985"
+                             >
+                               385kWh
+                             </Text>
+                           </div>
+                           <div className="flex flex-row items-start justify-between w-full">
+                             
+                             <Text
+                               className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                               size="txtAdventProBold985"
+                             >
+                             Yearly Energy
+                             </Text>
+                             <Text
+                               className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
+                               size="txtAdventProBold985"
+                             >
+                               385kWh
+                             </Text>
+                           </div>
+                            {/* <div className="h-1 overflow-hidden relative w-[92%]">
+                              <div className="w-full h-full absolute bg-yellow_50 rounded-[2px]"></div>
+                              <div
+                                className="h-full absolute bg-orange_A700  rounded-[2px]"
+                                style={{ width: "30%" }}
+                              ></div>
+                            </div> */}
+                          </div>
+                        </div>
+                        {/* <div className="flex flex-col items-start justify-start w-[92%] md:w-full">
+                          <Text
+                            className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                            size="txtAdventProBold985"
+                          >
+                            Monthly Energy
+                          </Text>
+                          <Text
+                          className="md:ml-[0] ml-[200px] mt-[58px] text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
+                          size="txtAdventProBold985"
+                        >
+                          90000kWh
+                        </Text>
+                          <div className="h-1 md:h-2 mt-1 relative w-full"> */}
+                            {/* <Line className="absolute bg-gray-100 h-1 inset-[0] justify-center m-auto rounded-sm w-full" /> */}
+                            {/* <Line className="absolute bg-deep_purple-A400 bottom-[0] h-1 left-[0] rounded-sm w-[52%]" /> */}
+                          {/* </div>
+                        </div> */}
+                      </div>
+                    </div>
+                    <div className="absolute flex flex-col   gap-[25px] inset-x-[0] justify-start mx-auto top-[7%] w-[96%]">
+                      <div className="flex flex-row gap-[108px] items-center justify-start w-[93%] md:w-full">
+                        <div className="flex flex-col items-start  justify-start">
+                          <Text
+                            className="text-[16.89px] text-gray-900 tracking-[-0.34px]"
+                            size="txtLatoBlack1689"
+                          >
+                            Energy Consumption
+                          </Text>
+                          <Text
+                            className="bg-clip-text bg-gradient  mt-1 text-[9.85px] text-transparent"
+                            size="txtAdventProBold985Bluegray400"
+                          >
+                            information on Energy Consuption
+                          </Text>
+                        </div>
+                        {/* <Img
+                          className="h-[18px] md:h-auto object-cover"
+                          src="images/img_iconlylightfilter_17x16.png"
+                          alt="iconlylightfilt_Two"
+                        /> */}
+                      </div>
+                      <div className="flex flex-col items-start justify-start ml-5 md:ml-[0] w-[94%] md:w-full">
+                        <div className="flex flex-col items-center justify-start w-[94%] md:w-full">
+                          <div className="flex flex-row items-center justify-end w-full">
+                            <div className="bg-gray-50 h-11 rounded-[11px] w-11"></div>
+                            <div className="flex flex-col items-center justify-start ml-[9px]">
+                              <Text
+                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                                size="txtAdventProBold985"
+                              >
+                                Total Energy
+                              </Text>
+                              <Text
+                                className="mt-[3px] text-[12.67px] text-gray-900 tracking-[-0.25px]"
+                                size="txtLatoBlack1267"
+                              >
+                                386kWh
+                              </Text>
+                            </div>
+                            {/* <Img
+                              className="h-4 ml-[142px] w-4"
+                              src="images/img_arrowright.svg"
+                              alt="arrowright"
+                            /> */}
+                          </div>
+                        </div>
+                        {/* <Text
+                          className="md:ml-[0] ml-[200px] mt-[58px] text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
+                          size="txtAdventProBold985"
+                        >
+                          90000kWh
+                        </Text> */}
+                        {/* <div className="flex flex-col items-center justify-start mt-[33px] w-full">
+                          <div className="flex flex-col items-start justify-start w-full">
+                            <div className="flex flex-row items-start justify-between w-full">
+                            <Line className="absolute bg-red-A400 h-[5px] inset-[0] justify-center m-auto rounded-sm w-[98%]" />
+
+                              <Text
+                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                                size="txtAdventProBold985"
+                              >
+                                Yearly Energy
+                              </Text>
+                              <Text
+                                className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
+                                size="txtAdventProBold985"
+                              >
+                                1000000kWh
+                              </Text>
+                            </div>
+                            <div className="md:h-2 h-[5px] mt-[3px] relative w-[92%]">
+                              <Line className="absolute bg-red-50 h-1 inset-[0] justify-center m-auto rounded-sm w-full" />
+                            </div>
+                          </div>
+                        </div> */}
+                      {/* </div> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          
+        </div>
       {/* </div> */}
     </>
   );
