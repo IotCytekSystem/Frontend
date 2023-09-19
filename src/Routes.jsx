@@ -17,7 +17,7 @@ const ProjectRoutes = () => {
       <Router>
         <Routes>
         
-          <Route path="/desktoploginpage" element={<Desktoploginpage />} />
+          <Route path="/" element={<Desktoploginpage />} />
 
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/ForgotPassword" element={<ForgotPassword/>} />

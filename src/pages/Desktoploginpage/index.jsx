@@ -1,22 +1,54 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { Button, CheckBox, Img, Input,Text } from "components";
 // import { Navigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import logo from "../../assets/image/logo.png";
-import test from "../../assets/image/test.jpg"
+import test from "../../assets/image/test.jpg";
+import axios from 'axios';
+
+
+import { Navigate, Outlet } from 'react-router-dom';
 
 
 const DesktoploginpagePage = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  
+  
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+  
   
 
-  // const MoveToDashboard = async (e) => {
-  //   e.preventDefault();
+  const sendRequest = async () => {
+    try {
+      const requestData = {
+        email: email,
+        password: password,
+      };
+      const response = await axios.post('http://localhost:8080/api/v1/auth/login', requestData);
+      console.log("logged in");
+      
+      window.location.href = '/Admindashboard';
+ 
+
+
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error('Error:', error);
+    }
+  };
   
-    // let navigate = Navigate();
   
-  //   <Navigate to="/Admindashboard" replace={true}/>
-  // };
 
   return (
     <>
@@ -72,13 +104,15 @@ const DesktoploginpagePage = () => {
                       >
                         Email
                       </Text>
-                      <Input
-                        name="emailplaceholder"
+                      {/* <Input
+                      name="email" 
                         placeholder="Enter your email address"
                         className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
 
                         wrapClassName="flex w-full"
                         type="email"
+                        value={email}
+                        onChange={handleEmailChange }
                         prefix={
                           <Img
                             className="mt-0.5 mb-1 h-[17px] mr-2.5"
@@ -86,7 +120,17 @@ const DesktoploginpagePage = () => {
                             alt="message 1"
                           />
                         }
-                      ></Input>
+                      ></Input> */}
+                      <input
+                       name="email"
+                       placeholder="Enter your email address"
+                       className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
+                       wrapClassName="flex w-full"
+                       type="email"
+                       value={email}
+                       onChange={handleEmailChange}
+                      />
+                   
                     </div>
                     <div className="flex flex-col items-center justify-start w-full">
                       <div className="flex flex-col items-start justify-start w-full">
@@ -105,13 +149,15 @@ const DesktoploginpagePage = () => {
                               alt="padlockOne"
                             />                         
                           </div>
-                           <Input
-                        name="Passwordplaceholder"
-                        placeholder="Enter your Password"
-                        className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
-                        wrapClassName="flex w-full"
-                        type="Password"
-                      ></Input>
+                          <input
+                       name="password"
+                       placeholder="Enter your password"
+                       className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
+                       wrapClassName="flex w-full"
+                       type="password"
+                       value={password}
+                       onChange={handlePasswordChange}
+                      />
                         
                         </div>
                       </div>
@@ -133,9 +179,9 @@ const DesktoploginpagePage = () => {
                     </Text>
                   </div>
                  
-                  <Button className="cursor-pointer font-medium leading-[normal] min-w-[429px] sm:min-w-full mt-[58px] rounded-[26px] text-[17px] text-center">
+                  <Button onClick={sendRequest} className="cursor-pointer font-medium leading-[normal] min-w-[429px] sm:min-w-full mt-[58px] rounded-[26px] text-[17px] text-center">
                 
-                    <Link to="/Admindashboard">Login</Link>
+                 Login
                   </Button>
                 </div>
               </div>
