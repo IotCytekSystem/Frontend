@@ -150,7 +150,7 @@ const Admindashboard = () => {
               ))}
             </Menu>
           </Sidebar>
-          <div className="flex flex-1 flex-col gap-8 items-center justify-start md:mt-0 mt-[26px] w-full">
+          <div className="flex flex-1 flex-col items-center justify-start md:mt-0 mt-[20px] w-full">
             <div className="flex sm:flex-col flex-row md:gap-10 items-center justify-between w-full">
               <div className="flex flex-col gap-[7px] items-start justify-start">
                 <Text
@@ -168,11 +168,11 @@ const Admindashboard = () => {
               </div>
               
             </div>
-            <div className="vertical-container  mt- -2flex flex-col p-[40px] w-[110%]">
+            <div className="vertical-container h-screen flex flex-col pt-[-20px] w-full">
 
             {/* <div className="flex md:flex-col bg-red-900 flex-row md:gap-[42px] items-start justify-between w-[40] w-full"> */}
               <div className="flex md:flex-1  flex-col gap-[25px] items-center justify-start bg-yellow-900w-[63%]  md:w-full">
-                <div className=" bg-red-900 flex sm:flex-col flex-row gap-7 items-center justify-start p-[23px] sm:px-5 rounded-[14px] shadow-bs w-full">
+                <div className="bg-white-A700 flex sm:flex-col flex-row gap-7 items-center justify-start p-[23px] sm:px-5 rounded-[14px] shadow-bs w-full">
                   <List
                     className="sm:flex-1  sm:flex-col flex-row gap-[27px] grid sm:grid-cols-1 grid-cols-3 ml-1 sm:ml-[0] w-[73%] sm:w-full"
                     orientation="horizontal"
@@ -180,9 +180,9 @@ const Admindashboard = () => {
                     <div className="flex flex-col items-center justify-start w-full">
                       <div className="flex flex-row items-center justify-between w-full">
                 
-                        <div className="flex flex-col  gap-1.5 items-start justify-start">
+                        <div className="flex flex-col gap-1.5 items-start justify-start">
                           <Text
-                            className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
+                            className="bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40"
                             size="txtAveriaSerifLibreBold1126"
                           >
                             SmartMeters
@@ -209,7 +209,7 @@ const Admindashboard = () => {
                           </Button> */}
                           <div className="flex flex-col gap-1.5 items-start justify-start">
                             <Text
-                              className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
+                              className="bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40"
                               size="txtAveriaSerifLibreBold1126"
                             >
                               Power
@@ -237,7 +237,7 @@ const Admindashboard = () => {
                           {/* </Button> */}
                           <div className="flex flex-col gap-[7px] items-start justify-start">
                             <Text
-                              className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
+                              className="bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40"
                               size="txtAveriaSerifLibreBold1126"
                             >
                               Places
@@ -266,7 +266,7 @@ const Admindashboard = () => {
                         {/* </Button> */}
                         <div className="flex flex-col gap-[5px] items-start justify-start">
                           <Text
-                            className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
+                            className="bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40"
                             size="txtAveriaSerifLibreBold1126"
                           >
                             Total Energy
@@ -733,7 +733,7 @@ const Admindashboard = () => {
                   <img className="h-6 w-6" src={power} alt=""/>
                   <span className="text-center font-normal  text-sm p-1 ">Peak Power</span>
                   </div>
-                  <div className="text-center text-green-500">{data[0]}<span className="text-orange-400 pl-1">Kwh</span></div>
+                  <div className="text-center text-green-500">{data[0]}<span className="text-orange-400 pl-1">W</span></div>
 
                 </div>
                 {/* Peak current */}
@@ -750,7 +750,7 @@ const Admindashboard = () => {
                   <img className="h-6 w-6" src={energy} alt=""/>
                   <span className="text-center font-normal  text-sm p-1">Energy Consumption</span>
                   </div>
-                  <div className="text-center text-green-500">{current[0]}<span className="text-orange-400 pl-1">A</span></div>
+                  <div className="text-center text-green-500">{current[0]}<span className="text-orange-400 pl-1">kWh</span></div>
 
                 </div>
                 </div>
@@ -761,7 +761,7 @@ const Admindashboard = () => {
           <thead>
             <tr >
             <th></th>
-              <th className="text-white-A700 bg-red-400 py-1 rounded-sm mr-1"  >Red </th>
+              <th className="text-white-A700 bg-red-400 py-1 rounded-sm "  >Red </th>
               <th className="text-white-A700 bg-blue-400 py-1 rounded-sm ">Blue </th>
               <th className="text-white-A700 bg-yellow-400 py-1 rounded-sm ">Yellow </th>
               <th className="text-white-A700 bg-green-400 py-1 rounded-sm ">Total</th>
@@ -825,19 +825,14 @@ const Admindashboard = () => {
           </tbody>
             </table>
       </div>
-      
-            </div>
-
-          </div>
-          </div>
-          <div className="vertical-container  m-auto h-[410px] ml-[210px]  mt-[-5px] pt-[-px]  flex flex-col p-[4px] w-[45%]">
+      <div className="vertical-container  h-[300px] ml-2  mt-[2.5rem] flex flex-col p-[4px] w-full ">
 
           <div className="flex md:flex-col   flex-row gap-[27px] items-center justify-between mt-[-35px] w-full">
-                  <div className="h-[298px]  relative w-[48%] md:w-full">
+                  <div className="h-[298px]    relative w-[50%] md:w-full">
                     {/* <div className="absolute h-[298px] inset-[0] justify-center  m-auto shadow-bs2 w-[98%]"></div> */}
-                    <div className="absolute h-[297px]  md:h-[298px] inset-[0]  rounded-[16px] bg-blue-50 justify-center m-auto w-110 ml-3.5  w-full">
+                    <div className="absolute h-[297px]  md:h-[298px] inset-[0]  rounded-[16px] bg-white-A700 justify-center     w-[100%]">
                       <div className="h-[298px]  m-auto rounded-[16px] w-full"></div>
-                      <div className="absolute flex flex-col gap-[37px]  inset-x-[0] items-center justify-start mx-auto top-[8%] w-[82%]">
+                      <div className="absolute flex   flex-col gap-[37px]  inset-x-[0] items-center justify-start mx-auto top-[8%] w-[82%]">
                         <div className="flex flex-row items-start justify-between w-[98%] md:w-full">
                           <div className="flex flex-col items-center justify-start">
                             <Text
@@ -858,7 +853,7 @@ const Admindashboard = () => {
                             <div className="flex flex-col  items-center justify-start w-[45%] md:w-full">
                               <div className="flex flex-col gap-[5px] items-end justify-start w-full">
                                 <div className="flex flex-row gap-[7px] items-start justify-start mr-0.5 w-[95%] md:w-full">
-                                  <div className="bg-red-A400 h-1 my-[3px] rounded-[50%] w-1"></div>
+                                  <div className="h-1 my-[3px] rounded-[50%] w-1"></div>
                                   <Text
                                     className="text-[9.85px] text-gray-900"
                                     size="txtAveriaSansLibreBold985Gray900"
@@ -898,7 +893,7 @@ const Admindashboard = () => {
                                 <div className="flex flex-row gap-[7px] items-start justify-start w-full">
                                   <div className="bg-_gray-100 h-1 mb-[5px] mt-0.5 rounded-[50%] w-1"></div>
                                   <Text
-                                    className="text-[9.85px] text-gray-900"
+                                    className="text-[9.85px] text-gray-900 "
                                     size="txtAveriaSansLibreBold985Gray900"
                                   >
                                     Energy Balance
@@ -915,21 +910,23 @@ const Admindashboard = () => {
                           </div>
                           <div className="h-[172px] relative w-[172px]">
                             <div className="bg-red-A400 h-[172px] m-auto rounded-[50%] w-[172px]"></div>
-                            <div className="!w-[165px] absolute h-[165px] inset-[0] justify-center m-auto overflow-visible">
+                            <div className="!w-[165px] absolute h-[150px] inset-[0] justify-center m-auto overflow-visible">
                               <CircularProgressbar
                                 className="!w-[165px] absolute h-[165px] inset-[0] justify-center m-auto overflow-visible"
-                                value={25}
+                                value={50}
                                 counterClockwise
-                                strokeWidth={8}
+                                strokeWidth={6}
                                 styles={{
                                   trail: { strokeWidth: 8, stroke: "#00b7fe" },
+
                                   path: {
                                     strokeLinecap: "square",
-                                    height: "100%",
+                                    height: "150%",
                                     transformOrigin: "center",
                                     transform: "rotate(222deg)",
-                                    stroke: "#d0d2da",
+                                    stroke: "#CD5C5C",
                                   },
+                                  
                                 }}
                               ></CircularProgressbar>
                             </div>
@@ -939,11 +936,39 @@ const Admindashboard = () => {
                     </div>
                   </div>
                   <div className="font-adventpro md:h-[300px] h-[300px] pb-6 relative shadow-bs2 w-[48%] md:w-full">
-                  <div className="absolute h-[297px] md:h-[300px] inset-[0] justify-center mr-2 m-auto w-full">
-                      <div className="  bg-blue-50 h-[297px]  m-auto rounded-[16px] w-full"></div>
+                  <div className="absolute h-[297px] md:h-[300px]  inset-[0] justify-center  w-full">
+                      <div className="  bg-white-A700 h-[297px]    rounded-[16px] w-full">
                       <div className="absolute bottom-1/4 flex flex-col gap-[21px] items-start just ify-start right-[2%] w-[90%]">
                         <div className="flex flex-col items-center justify-start w-full">
                           <div className="flex flex-col  gap-[5px] items-start justify-start w-full">
+                          <div className=" flex  bg-white-A700,h-6 w-6 rounded-sm">
+                         
+                          <img className="h-6 w-6" src={Current} alt=""/>
+                          <Text className="text-[15px]">Total Energy</Text>
+                          <Text className="text-[15px] text-green-300">386kWh</Text>
+                          
+
+                          </div>
+                          </div>
+                        
+                          {/* <div className="bg-white-A700 h-6 rounded-[11px] w-6">
+                          <img className="h-6 w-6" src={Current} alt=""/>
+
+                          </div>
+                            <div className="flex flex-col items-center justify-start ml-[9px]">
+                              <Text
+                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
+                                size="txtAdventProBold985"
+                              >
+                                Total Energy
+                              </Text>
+                              <Text
+                                className="mt-[3px] text-[12.67px] text-gray-900 tracking-[-0.25px]"
+                                size="txtLatoBlack1267"
+                              >
+                                386kWh
+                              </Text>
+                            </div> */}
                             <div className="flex flex-row  items-start justify-between w-full">
                              
                               <Text
@@ -1018,8 +1043,8 @@ const Admindashboard = () => {
                         </div> */}
                       </div>
                     </div>
-                    <div className="absolute flex flex-col   gap-[25px] inset-x-[0] justify-start mx-auto top-[7%] w-[96%]">
-                      <div className="flex flex-row gap-[108px] items-center justify-start w-[93%] md:w-full">
+                    <div className="absolute flex flex-col   gap-[5px] inset-x-[0] justify-start mx-auto top-[7%] w-[96%]">
+                      <div className="flex flex-row gap-[5px] items-center justify-start  w-full">
                         <div className="flex flex-col items-start  justify-start">
                           <Text
                             className="text-[16.89px] text-gray-900 tracking-[-0.34px]"
@@ -1028,7 +1053,7 @@ const Admindashboard = () => {
                             Energy Consumption
                           </Text>
                           <Text
-                            className="bg-clip-text bg-gradient  mt-1 text-[9.85px] text-transparent"
+                            className="bg-clip-text bg-gradient   text-[9.85px] "
                             size="txtAdventProBold985Bluegray400"
                           >
                             information on Energy Consuption
@@ -1040,61 +1065,13 @@ const Admindashboard = () => {
                           alt="iconlylightfilt_Two"
                         /> */}
                       </div>
-                      <div className="flex flex-col items-start justify-start ml-5 md:ml-[0] w-[94%] md:w-full">
+                      <div className="flex flex-col bgitems-start justify-start ml-5 md:ml-[0] w-[94%] md:w-full">
                         <div className="flex flex-col items-center justify-start w-[94%] md:w-full">
                           <div className="flex flex-row items-center justify-end w-full">
-                            <div className="bg-gray-50 h-11 rounded-[11px] w-11"></div>
-                            <div className="flex flex-col items-center justify-start ml-[9px]">
-                              <Text
-                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                Total Energy
-                              </Text>
-                              <Text
-                                className="mt-[3px] text-[12.67px] text-gray-900 tracking-[-0.25px]"
-                                size="txtLatoBlack1267"
-                              >
-                                386kWh
-                              </Text>
-                            </div>
-                            {/* <Img
-                              className="h-4 ml-[142px] w-4"
-                              src="images/img_arrowright.svg"
-                              alt="arrowright"
-                            /> */}
+                           
                           </div>
                         </div>
-                        {/* <Text
-                          className="md:ml-[0] ml-[200px] mt-[58px] text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                          size="txtAdventProBold985"
-                        >
-                          90000kWh
-                        </Text> */}
-                        {/* <div className="flex flex-col items-center justify-start mt-[33px] w-full">
-                          <div className="flex flex-col items-start justify-start w-full">
-                            <div className="flex flex-row items-start justify-between w-full">
-                            <Line className="absolute bg-red-A400 h-[5px] inset-[0] justify-center m-auto rounded-sm w-[98%]" />
-
-                              <Text
-                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                Yearly Energy
-                              </Text>
-                              <Text
-                                className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                1000000kWh
-                              </Text>
-                            </div>
-                            <div className="md:h-2 h-[5px] mt-[3px] relative w-[92%]">
-                              <Line className="absolute bg-red-50 h-1 inset-[0] justify-center m-auto rounded-sm w-full" />
-                            </div>
-                          </div>
-                        </div> */}
-                      {/* </div> */}
+                    
                     </div>
                   </div>
                 </div>
@@ -1102,6 +1079,14 @@ const Admindashboard = () => {
 
           
         </div>
+      
+            
+            </div>
+            
+
+          </div>
+          </div>
+          
       {/* </div> */}
     </>
   );
