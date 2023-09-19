@@ -13,7 +13,7 @@ const Addcustomer = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -34,9 +34,11 @@ const Addcustomer = () => {
       const requestData = {
         email: email,
         password: password,
+        phone:phone,
+        name:name
       };
-      const response = await axios.post('http://localhost:8080/api/v1/auth/login', requestData);
-      console.log("logged in");
+      const response = await axios.post('http://localhost:8080/api/clients/add', requestData);
+      console.log("added");
       
       window.location.href = '/Admindashboard';
  
