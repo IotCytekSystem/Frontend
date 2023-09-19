@@ -8,6 +8,7 @@ import test from "../../assets/image/test.jpg";
 import axios from 'axios';
 
 
+
 import { Navigate, Outlet } from 'react-router-dom';
 
 
@@ -143,11 +144,7 @@ const DesktoploginpagePage = () => {
 
                         <div className="flex flex-row items-end justify-between mt-3 w-full">
                           <div className="flex flex-row gap-2 items-start justify-start">
-                            <Img
-                              className=" mt-0.5 mb-1 h-[17px] mr-2.5"
-                              src="images/img_padlock1.svg"
-                              alt="padlockOne"
-                            />                         
+                                              
                           </div>
                           <input
                        name="password"
