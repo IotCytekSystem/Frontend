@@ -5,15 +5,12 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import React, { useState, useEffect } from 'react';
 import { Button, Img, Line, List, SelectBox, Text,} from "components";
 import logo from "../../assets/image/logo.png";
-<<<<<<< HEAD
 import power from "../../assets/image/power.png"
 import energy from "../../assets/image/energy.png"
 import Current from "../../assets/image/circuit.png"
 
  
-=======
 import axios from 'axios';
->>>>>>> 988e77d780b77320d900aaa3b16d6e6e06ab1e1e
 
 
 const durationOptionsList = [
