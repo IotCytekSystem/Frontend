@@ -171,21 +171,15 @@ const Admindashboard = () => {
             <div className="vertical-container  mt- -2flex flex-col p-[40px] w-[110%]">
 
             {/* <div className="flex md:flex-col bg-red-900 flex-row md:gap-[42px] items-start justify-between w-[40] w-full"> */}
-              <div className="flex md:flex-1 flex-col gap-[25px] items-center justify-start bg-yellow-900w-[63%]  md:w-full">
-                <div className=" bg-white-A700 flex sm:flex-col flex-row gap-7 items-center justify-start p-[23px] sm:px-5 rounded-[14px] shadow-bs w-full">
+              <div className="flex md:flex-1  flex-col gap-[25px] items-center justify-start bg-yellow-900w-[63%]  md:w-full">
+                <div className=" bg-red-900 flex sm:flex-col flex-row gap-7 items-center justify-start p-[23px] sm:px-5 rounded-[14px] shadow-bs w-full">
                   <List
                     className="sm:flex-1  sm:flex-col flex-row gap-[27px] grid sm:grid-cols-1 grid-cols-3 ml-1 sm:ml-[0] w-[73%] sm:w-full"
                     orientation="horizontal"
                   >
                     <div className="flex flex-col items-center justify-start w-full">
                       <div className="flex flex-row items-center justify-between w-full">
-                        <Button className="bg-orange-50_95 flex h-11 items-center justify-center my-1.5 p-3 rounded-[11px] w-11">
-                          <Img
-                            className="h-4"
-                            src={power}
-                            alt="groupFive"
-                          />
-                        </Button>
+                
                         <div className="flex flex-col  gap-1.5 items-start justify-start">
                           <Text
                             className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
@@ -729,88 +723,48 @@ const Admindashboard = () => {
                 isMulti={false}
                 options={durationOptionsList}
               />
-              <div className="bg-white-A700 flex md:flex-1 flex-col items-center justify-start rounded-[16px] w-[100%] md:w-full">
-             
-                <div
-                  className="bg-cover bg-no-repeat flex flex-col h-[300px] items-start justify-start w-auto"
-                  style={{ backgroundImage: "url('images/defaultNoData.png')" }}
-                >
-                
-                  <div className="flex   flex-col justify-start w-[50%]">
-                  <p className="text-center mt-4 pt-2">ANALYSIS</p>
-                   
-                    <div className="flex flex-col font-averiasanslibre items-center justify-start h-[30px] md:ml-[0] ml-[11px] mt-8 w-[97%] md:w-full">
-                    <div className="flex items-center justify-evenly ml-[5px] mt-2 " >
-                          <Img
-                            className="h-4"
-                            src={power}
-                            alt="groupFive"
-                          />
-                      <Text
-                        className="text-[10px] text-gray-900 "
-                        size="txtAveriaSansLibreBold15"
-                      >
-                        Peak Power
-                      </Text>
-                      <Text
-                        className="mt-[10px]  text-[10px] text-gray-900"
-                        size="txtAveriaSansLibreBold15"
-                      >
-                       {data[0]}
-                      </Text>
-                      {/* <Line className="bg-gray-200 h-[5px] mt-[1px] w-full" /> */}
-                    </div>
-                    </div>
-                    
-                    <List
-                      className="flex flex-col font-averiasanslibre gap-[23px] h-[30px] items-center mr-2 mt-3.5 w-[98%]"
-                      orientation="vertical"
-                    >
-                    
-                      <div className="flex flex-col justify-start w-full">
-                        <Text
-                          className="md:ml-[0] ml-[35px] text-[10px] text-gray-900"
-                          size="txtAveriaSansLibreBold15"
-                        >
-                          Peak Current
-                        </Text>
-                        <Text
-                          className="md:ml-[0] ml-[45px] mt-[10px] text-[10px] text-gray-900"
-                          size="txtAveriaSansLibreBold15"
-                        >
-                         {current[0]}
-                        </Text>
-                        {/* <Line className="bg-gray-200 h-px mt-[33px] w-full" /> */}
-                      </div>
-                      <div className="flex flex-col justify-start w-full">
-                        <Text
-                          className="md:ml-[0] ml-[35px] text-[10px] text-gray-900"
-                          size="txtAveriaSansLibreBold15"
-                        >
-                          Energy Consumptipon
-                        </Text>
-                        <Text
-                          className="md:ml-[0] ml-[35px] mt-[10px] text-[10px] text-gray-900"
-                          size="txtAveriaSansLibreBold15"
-                        >
-                          386kWh
-                        </Text>
-                        {/* <Line className="bg-gray-200 h-px mt-[22px] w-full" /> */}
-                      </div>
-                    </List>
+            {/* Analysis card */}
+              <div className="flex flex-col  bg-white-A700 rounded-lg">
+                {/* Peak power */}
+              <div>  <h2 className="text-center py-1">ANALYSIS</h2></div>
+              <div className="flex space-x-15 mx-6 w-full  px-[6rem]">
+                <div className=" p-2">
+                  <div className="flex flex-col items-center ">
+                  <img className="h-6 w-6" src={power} alt=""/>
+                  <span className="text-center font-normal  text-sm p-1 ">Peak Power</span>
                   </div>
+                  <div className="text-center text-green-500">{data[0]}<span className="text-orange-400 pl-1">Kwh</span></div>
+
+                </div>
+                {/* Peak current */}
+                <div className=" p-2">
+                  <div className="flex flex-col items-center ">
+                  <img className="h-6 w-6" src={Current} alt=""/>
+                  <span className="text-center font-normal  text-sm p-1">Peak Current</span>
+                  </div>
+                  <div className="text-center text-green-500">{current[0]}<span className="text-orange-400 pl-1">A</span></div>
+                </div>
+                {/* Energy consuption */}
+                <div className=" p-2">
+                  <div className="flex flex-col items-center ">
+                  <img className="h-6 w-6" src={energy} alt=""/>
+                  <span className="text-center font-normal  text-sm p-1">Energy Consumption</span>
+                  </div>
+                  <div className="text-center text-green-500">{current[0]}<span className="text-orange-400 pl-1">A</span></div>
+
+                </div>
                 </div>
               </div>
-
+  {/* End of Analysis card */}
               <div className="mt-[10px] bg-white-A700 flex md:flex-1 flex-col items-center justify-start px-5 pt-5 rounded-[16px] w-[100%] md:w-full">
         <table>
           <thead>
-            <tr className="bg-blue-500">
+            <tr >
             <th></th>
-              <th>Red </th>
-              <th>Blue </th>
-              <th>Yellow </th>
-              <th>Total</th>
+              <th className="text-white-A700 bg-red-400 py-1 rounded-sm mr-1"  >Red </th>
+              <th className="text-white-A700 bg-blue-400 py-1 rounded-sm ">Blue </th>
+              <th className="text-white-A700 bg-yellow-400 py-1 rounded-sm ">Yellow </th>
+              <th className="text-white-A700 bg-green-400 py-1 rounded-sm ">Total</th>
             </tr>
             <tr>
     <th scope="row">V</th>
