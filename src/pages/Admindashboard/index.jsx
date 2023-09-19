@@ -1,10 +1,11 @@
-import React from "react";
+
 
 import { Menu, MenuItem, Sidebar, useProSidebar } from "react-pro-sidebar";
 import { CircularProgressbar } from "react-circular-progressbar";
-
+import React, { useState, useEffect } from 'react';
 import { Button, Img, Line, List, SelectBox, Text,} from "components";
 import logo from "../../assets/image/logo.png";
+import axios from 'axios';
 
 
 const durationOptionsList = [
@@ -15,7 +16,30 @@ const durationOptionsList = [
 
 const Admindashboard = () => {
   const { collapseSidebar, collapsed } = useProSidebar();
+  const [data, setData] = useState([]);
+  const [current, setCurrent] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Define a function to fetch user data from the server
+    const fetchUserData = async () => {
+      try {
+        // Send a GET request to your server's endpoint
+        const response = await axios.get("http://localhost:8080/api/power/peak");
+        const current = await axios.get("http://localhost:8080/api/current/peak");
+
+        // Update the state with the received data
+        setData(response.data);
+        setCurrent(current.data)
+        setLoading(false); // Set loading to false once data is received
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    // Call the fetchUserData function when the component mounts
+    fetchUserData();
+  }, []); 
 
   const sideBarMenu = [
     {
@@ -342,7 +366,7 @@ const Admindashboard = () => {
                                         className="mb-[13px] text-[14.08px] text-center text-gray-900"
                                         size="txtAveriaSansLibreBold1408Gray900"
                                       >
-                                        7546
+                                      {data[0]}
                                       </Text>
                                     </div>
                                   </div>
@@ -719,7 +743,7 @@ const Admindashboard = () => {
                         className="mt-[10px]  text-[10px] text-gray-900"
                         size="txtAveriaSansLibreBold15"
                       >
-                        4300W
+                       {data[0]}
                       </Text>
                       {/* <Line className="bg-gray-200 h-[5px] mt-[1px] w-full" /> */}
                     </div>
@@ -738,7 +762,7 @@ const Admindashboard = () => {
                           className="md:ml-[0] ml-[45px] mt-[10px] text-[10px] text-gray-900"
                           size="txtAveriaSansLibreBold15"
                         >
-                          223A
+                         {current[0]}
                         </Text>
                         {/* <Line className="bg-gray-200 h-px mt-[33px] w-full" /> */}
                       </div>
