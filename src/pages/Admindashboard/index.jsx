@@ -76,7 +76,7 @@ const Admindashboard = () => {
 
   return (
     <>
-      <div className="flex bg-indigo-100 flex-col font-averiaseriflibre items-center justify-start mx-auto w-full">
+      <div className="flex bg-indigo-100  h- screen flex-col font-averiaseriflibre items-center justify-start mx-auto w-full">
         <div className="flex md:flex-col flex-row md:gap-[43px] items-start justify-between mx-auto md:px-5 w-full">
           <Sidebar
             onClick={() => collapseSidebar(!collapsed)}
@@ -860,12 +860,12 @@ const Admindashboard = () => {
 
           </div>
           </div>
-          <div className="vertical-container m-auto h-[410px] ml-[210px]  mt-[-5px] pt-[-px]  flex flex-col p-[4px] w-[45%]">
+          <div className="vertical-container  m-auto h-[410px] ml-[210px]  mt-[-5px] pt-[-px]  flex flex-col p-[4px] w-[45%]">
 
-          <div className="flex md:flex-col  flex-row gap-[27px] items-center justify-between mt-[-35px] w-full">
+          <div className="flex md:flex-col   flex-row gap-[27px] items-center justify-between mt-[-35px] w-full">
                   <div className="h-[298px]  relative w-[48%] md:w-full">
                     {/* <div className="absolute h-[298px] inset-[0] justify-center  m-auto shadow-bs2 w-[98%]"></div> */}
-                    <div className="absolute h-[297px] md:h-[298px] inset-[0]  rounded-[16px] bg-blue-50 justify-center m-auto w-110 ml-3.5  w-full">
+                    <div className="absolute h-[297px]  md:h-[298px] inset-[0]  rounded-[16px] bg-blue-50 justify-center m-auto w-110 ml-3.5  w-full">
                       <div className="h-[298px]  m-auto rounded-[16px] w-full"></div>
                       <div className="absolute flex flex-col gap-[37px]  inset-x-[0] items-center justify-start mx-auto top-[8%] w-[82%]">
                         <div className="flex flex-row items-start justify-between w-[98%] md:w-full">
@@ -884,8 +884,8 @@ const Admindashboard = () => {
                           /> */}
                         </div>
                         <div className="flex flex-row font-averiasanslibre gap-[5px] items-center justify-evenly w-full">
-                          <div className="flex flex-col gap-[17px] items-start justify-start w-[32%]">
-                            <div className="flex flex-col items-center justify-start w-[45%] md:w-full">
+                          <div className="flex flex-col  gap-[17px] items-start justify-start w-[32%]">
+                            <div className="flex flex-col  items-center justify-start w-[45%] md:w-full">
                               <div className="flex flex-col gap-[5px] items-end justify-start w-full">
                                 <div className="flex flex-row gap-[7px] items-start justify-start mr-0.5 w-[95%] md:w-full">
                                   <div className="bg-red-A400 h-1 my-[3px] rounded-[50%] w-1"></div>

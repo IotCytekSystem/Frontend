@@ -1,5 +1,6 @@
 import Admindashboardpage from "pages/Admindashboard";
 import ResetPassword from "pages/ResetPassword/Index";
+import Addcustomer from "pages/Addcustomer";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // const AutoLayoutHorizontal = React.lazy(() =>
@@ -20,6 +21,7 @@ const ProjectRoutes = () => {
           <Route path="/" element={<Desktoploginpage />} />
 
           <Route path="/ResetPassword" element={<ResetPassword />} />
+          <Route path="/Addcustomer" element={<Addcustomer/>} />
           <Route path="/ForgotPassword" element={<ForgotPassword/>} />
           <Route path="/register"element={<Desktopregisterpage />} />
   <Route path="/Admindashboard" element={<Admindashboardpage />} />
