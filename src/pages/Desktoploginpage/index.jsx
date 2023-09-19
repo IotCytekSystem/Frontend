@@ -164,13 +164,7 @@ const DesktoploginpagePage = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-start justify-between mt-4 w-full">
-                    {/* <CheckBox
-                      className="font-light leading-[normal] text-left  text-white-A700 text-xs"
-                      inputClassName="border border-solid border-white-A700 h-[15px] mr-[5px] w-[15px]"
-                      name="rememberme"
-                      id="rememberme"
-                      label="Remember Me"
-                    ></CheckBox> */}
+                   
                     <Text
                       className="text-white-A700 text-xs"
                       size="txtPoppinsLight12"

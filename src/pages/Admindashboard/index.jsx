@@ -5,6 +5,11 @@ import { CircularProgressbar } from "react-circular-progressbar";
 
 import { Button, Img, Line, List, SelectBox, Text,} from "components";
 import logo from "../../assets/image/logo.png";
+import power from "../../assets/image/power.png"
+import energy from "../../assets/image/energy.png"
+import Current from "../../assets/image/circuit.png"
+
+ 
 
 
 const durationOptionsList = [
@@ -24,11 +29,11 @@ const Admindashboard = () => {
       // ),
       label: "Overview",
     },
+    
+  
     {
-      // icon: (
-      //   <Img className="h-[17px] w-4" src="images/img_menu.svg" alt="menu" />
-      // ),
-      label: "Customer",
+
+  label : "Customer",
     },
     {
       // icon: (
@@ -150,13 +155,13 @@ const Admindashboard = () => {
                   >
                     <div className="flex flex-col items-center justify-start w-full">
                       <div className="flex flex-row items-center justify-between w-full">
-                        {/* <Button className="bg-orange-50_95 flex h-11 items-center justify-center my-1.5 p-3 rounded-[11px] w-11">
+                        <Button className="bg-orange-50_95 flex h-11 items-center justify-center my-1.5 p-3 rounded-[11px] w-11">
                           <Img
                             className="h-4"
-                            src="images/img_group5.png"
+                            src={power}
                             alt="groupFive"
                           />
-                        </Button> */}
+                        </Button>
                         <div className="flex flex-col  gap-1.5 items-start justify-start">
                           <Text
                             className="bg-clip-text bg-gradient  text-[11.26px] text-transparent"
@@ -332,6 +337,8 @@ const Admindashboard = () => {
                                     }}
                                   >
                                     <div className="bg-blue_gray-100 flex flex-col gap-[13px] items-center justify-start mb-[31px] mr-[110px] p-[5px] rounded-lg shadow-bs1">
+                                  
+                                    
                                       <Text
                                         className="text-[11.26px] text-black-900_01 text-center"
                                         size="txtAveriaSerifLibreBold1126Black90001"
@@ -709,6 +716,12 @@ const Admindashboard = () => {
                   <p className="text-center mt-4 pt-2">ANALYSIS</p>
                    
                     <div className="flex flex-col font-averiasanslibre items-center justify-start h-[30px] md:ml-[0] ml-[11px] mt-8 w-[97%] md:w-full">
+                    <div className="flex items-center justify-evenly ml-[5px] mt-2 " >
+                          <Img
+                            className="h-4"
+                            src={power}
+                            alt="groupFive"
+                          />
                       <Text
                         className="text-[10px] text-gray-900 "
                         size="txtAveriaSansLibreBold15"
@@ -723,10 +736,13 @@ const Admindashboard = () => {
                       </Text>
                       {/* <Line className="bg-gray-200 h-[5px] mt-[1px] w-full" /> */}
                     </div>
+                    </div>
+                    
                     <List
                       className="flex flex-col font-averiasanslibre gap-[23px] h-[30px] items-center mr-2 mt-3.5 w-[98%]"
                       orientation="vertical"
                     >
+                    
                       <div className="flex flex-col justify-start w-full">
                         <Text
                           className="md:ml-[0] ml-[35px] text-[10px] text-gray-900"
