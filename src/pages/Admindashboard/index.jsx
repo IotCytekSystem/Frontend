@@ -941,9 +941,9 @@ const Admindashboard = () => {
                       <div className="absolute bottom-1/4 flex flex-col gap-[21px] items-start just ify-start right-[2%] w-[90%]">
                         <div className="flex flex-col items-center justify-start w-full">
                           <div className="flex flex-col  gap-[5px] items-start justify-start w-full">
-                          <div className=" flex  bg-white-A700,h-6 w-6 rounded-sm">
+                          <div className=" flex  flex-row bg-white-A700 h-10 w-10 rounded-sm mt-[-80px]">
                          
-                          <img className="h-6 w-6" src={Current} alt=""/>
+                          <img className="h-10 w-12 pr-3" src={energy} alt=""/>
                           <Text className="text-[15px]">Total Energy</Text>
                           <Text className="text-[15px] text-green-300">386kWh</Text>
                           
