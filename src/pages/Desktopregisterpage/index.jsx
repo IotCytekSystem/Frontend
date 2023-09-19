@@ -1,8 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Img, Input, Line, Text } from "components";
 import logo from "../../assets/image/logo.png";
+import axios from 'axios';
 
 const DesktopRegisterPage = () => {
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleFnameChange = (event) => {
+    setFirstname(event.target.value);
+  };
+
+  const handleLnameChange = (event) => {
+    setLastname(event.target.value);
+  };
+
+  const registerUser = async (formData) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/auth/register', formData);
+
+      // Handle the response from the server here
+      console.log(response.data); // You can display a success message or handle errors
+      window.location.href = '/';
+
+    } catch (error) {
+      // Handle errors here, for example:
+      console.error('Registration failed:', error.message);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    // Collect form data (you can use state or useRef to get input values)
+    const formData = {
+      email: email,
+      firstname: firstname,
+      lastname: lastname,
+      password: password,
+    };
+
+    // Call the registerUser function to send the data to the backend
+    registerUser(formData);
+  };
+
   return (
     <>
       <div className="bg-black-900 font-poppins h-[900px] mx-auto relative w-full">
@@ -68,20 +119,15 @@ const DesktopRegisterPage = () => {
                   >
                     Email
                   </Text>
-                  <Input
-                    name="groupFourteen"
+                  <input
+                    name="email"
                     placeholder="Enter your email address"
                     className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
                     wrapClassName="flex w-full"
                     type="email"
-                    prefix={
-                      <Img
-                        className="mt-0.5 mb-1 h-[17px] mr-2.5"
-                        src="images/img_message_1.svg"
-                        alt="message 1"
-                      />
-                    }
-                  ></Input>
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
                 </div>
                 <div className="flex flex-col h-full items-center justify-start mt-[276px] mx-auto w-full">
                   <div className="flex flex-col gap-3 items-start justify-start w-full">
@@ -91,24 +137,17 @@ const DesktopRegisterPage = () => {
                     >
                       First name
                     </Text>
-                    <Input
-                      name="groupSixteen"
+                    <input
+                      name="firstname"
                       placeholder="Enter your first name"
                       className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
                       wrapClassName="flex w-full"
                       type="text"
-                      prefix={
-                        <Img
-                          className="mt-auto mb-2 h-4 mr-[11px]"
-                          src="images/img_user_1.svg"
-                          alt="user 1"
-                        />
-                      }
-                    ></Input>
+                      value={firstname}
+                      onChange={handleFnameChange}
+                    />
                   </div>
                 </div>
-          
-           
                 <div className="absolute bottom-[17%] flex flex-col inset-x-[0] items-center justify-start mx-auto w-full">
                   <div className="flex flex-col items-start justify-start w-full">
                     <Text
@@ -124,12 +163,15 @@ const DesktopRegisterPage = () => {
                           src="images/img_padlock1.svg"
                           alt="padlockOne"
                         />
-                        <Text
-                          className="text-base text-white-A700"
-                          size="txtPoppinsRegular16"
-                        >
-                          Enter your password
-                        </Text>
+                        <input
+                          name="password"
+                          placeholder="Enter your password"
+                          className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
+                          wrapClassName="flex w-full"
+                          type="password"
+                          value={password}
+                          onChange={handlePasswordChange}
+                        />
                       </div>
                       <Img
                         className="h-3.5 mb-0.5 mt-[7px] w-3.5"
@@ -147,48 +189,21 @@ const DesktopRegisterPage = () => {
                       size="txtPoppinsMedium13"
                     >
                       Last Name
-                    </Text><Input
-                      name="groupSixteen"
+                    </Text>
+                    <input
+                      name="lastname"
                       placeholder="Enter your last name"
                       className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
                       wrapClassName="flex w-full"
                       type="text"
-                      prefix={
-                        <Img
-                          className="mt-auto mb-2 h-4 mr-[11px]"
-                          src="images/img_user_1.svg"
-                          alt="user 1"
-                        />
-                      }
-                    ></Input>
-                    {/* <div className="flex flex-row items-end justify-between mt-3 w-full">
-                      <div className="flex flex-row gap-[11px] items-start justify-start">
-                        <Img
-                          className="h-[17px] w-[17px]"
-                          src="images/img_padlock1.svg"
-                          alt="padlockOne_One"
-                        />
-                        <Text
-                          className="text-base text-white-A700"
-                          size="txtPoppinsRegular16"
-                        >
-                          Enter your Password
-                        </Text>
-                      </div>
-                      <Img
-                        className="h-3.5 my-1 w-3.5"
-                        src="images/img_settings.svg"
-                        alt="settings_One"
-                      />
-                    </div> */}
-                    {/* <Line className="bg-white-A700 h-0.5 mt-1 w-full" /> */}
+                      value={lastname}
+                      onChange={handleLnameChange}
+                    />
                   </div>
                 </div>
-                <div className="absolute bg-yellow-500 bottom-[0] flex flex-col inset-x-[0] items-center justify-end mx-auto p-[11px] rounded-[26px] shadow-bs w-full">
-                  <a href="javascript:" className="mt-1 text-[17px] text-white-A700">
-                    <Text size="txtPoppinsMedium17">Register</Text>
-                  </a>
-                </div>
+                <button onClick={handleSubmit} className="absolute bg-yellow-500 bottom-[0] flex flex-col inset-x-[0] items-center justify-end mx-auto p-[11px] rounded-[26px] shadow-bs w-full">
+                  <Text size="txtPoppinsMedium17">Register</Text>
+                </button>
               </div>
             </div>
           </div>
