@@ -4,12 +4,7 @@ import { Button, CheckBox, Img, Input,Text } from "components";
 // import { Navigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import logo from "../../assets/image/logo.png";
-import test from "../../assets/image/test.jpg";
 import axios from 'axios';
-
-
-
-import { Navigate, Outlet } from 'react-router-dom';
 
 
 const DesktoploginpagePage = () => {
@@ -76,13 +71,8 @@ const DesktoploginpagePage = () => {
             
             <div className="login-container">
       <img src={logo} alt="Logo" className="logo" />
-      {/* Your login form */}
     </div>
-{/*             
-            <div className="bg-red-200 h-[100px] w-[100px] rounded-full">
 
-            <image className="h-[80px] w-[80px] bg-blue-900 z-100" src="../../assets/image/test.jpg" alt="logo"/>
-            </div> */}
             </div>
             <div className="flex flex-col items-center justify-start w-full">
               <div className="flex flex-col gap-[50px] items-start justify-start w-full">
@@ -105,23 +95,7 @@ const DesktoploginpagePage = () => {
                       >
                         Email
                       </Text>
-                      {/* <Input
-                      name="email" 
-                        placeholder="Enter your email address"
-                        className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
-
-                        wrapClassName="flex w-full"
-                        type="email"
-                        value={email}
-                        onChange={handleEmailChange }
-                        prefix={
-                          <Img
-                            className="mt-0.5 mb-1 h-[17px] mr-2.5"
-                            src="images/img_message_1.svg"
-                            alt="message 1"
-                          />
-                        }
-                      ></Input> */}
+                  
                       <input
                        name="email"
                        placeholder="Enter your email address"
