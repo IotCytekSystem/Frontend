@@ -4,7 +4,7 @@ import { Button, CheckBox, Img, Input,Text } from "components";
 // import { Navigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import logo from "../../assets/image/logo.png";
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 
 const DesktoploginpagePage = () => {
@@ -31,7 +31,7 @@ const DesktoploginpagePage = () => {
         email: email,
         password: password,
       };
-      const response = await axios.post('http://localhost:8080/api/v1/auth/login', requestData);
+      const response = await axios.post('/api/v1/auth/login', requestData);
       console.log("logged in");
       
       window.location.href = '/Admindashboard';

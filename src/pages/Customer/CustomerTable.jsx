@@ -1,84 +1,11 @@
 
-// import React, { useEffect, useState } from 'react';
-// import axios from 'axios'; 
-// const CustomerTable = () => {
-//   const [customers, setCustomers] = useState([]);
 
-//   useEffect(() => {
-//     axios.get('/api/customers') 
-//       .then(response => {
-//         setCustomers(response.data);
-//       })
-//       .catch(error => {
-//         console.error('Error fetching customer data:', error);
-//       });
-//   }, []);
-
-//   return (
-//     <div className="container mx-auto px-4 py-4">
-//       <h1 className="text-2xl font-semibold mb-4">Customer List</h1>
-//       <table className="min-w-full">
-//         <thead>
-//           <tr>
-//             <th className="px-4 py-2">ID</th>
-//             <th className="px-4 py-2">Name</th>
-//             <th className="px-4 py-2">meterSN</th>
-//             <th className="px-4 py-2">Location</th>
-//             <th className="px-4 py-2">Type</th>
-            
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {customers.map(customer => (
-//             <tr key={customer.id}>
-//               <td className="px-4 py-2">{customer.id}</td>
-//               <td className="px-4 py-2">{customer.name}</td>
-//               <td className="px-4 py-2">{customer.metersn}</td>
-//               <td className="px-4 py-2">{customer.location}</td>
-//               <td className="px-4 py-2">{customer.type}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default CustomerTable;
-
-
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import logo from "..//..//assets/image/logo.png"
 import profile from "..//..//assets/image/profile.png"
 import Sidebar from 'components/Sidebar';
+import axios from "../../axiosConfig";
 
-const customerData = [
-  {
-    name: 'John Doe',
-    phoneNumber: '123-456-7890',
-    country: 'USA',
-    county: 'California',
-    town: 'Los Angeles',
-    emailaddress: 'kingori@gmail.com',
-  },
-  {
-    name: 'John Doe',
-    phoneNumber: '123-456-7890',
-    country: 'USA',
-    county: 'California',
-    town: 'Los Angeles',
-    emailaddress: 'kingori@gmail.com',
-  },
-  {
-    name: 'John Doe',
-    phoneNumber: '123-456-7890',
-    country: 'USA',
-    county: 'California',
-    town: 'Los Angeles',
-    emailaddress: 'kingori@gmail.com',
-  },
-  // Add more customer data here
-];
 
 const CustomerTable = () => {
 
@@ -96,12 +23,32 @@ const CustomerTable = () => {
   const handleLogout = () => {
     // Handle the "Log Out" action here
   };
-  const [customers] = useState(customerData);
+  const [customers, setCustomers] = useState([]);
+
+  useEffect(() => {
+    // Define a function to fetch user data from the server
+    const fetchUserData = async () => {
+      try {
+        console.log("trying to fetch customers...")
+        // Send a GET request to your server's endpoint
+        const response = await axios.get("/clients");
+        // Update the state with the received data
+        console.log("customers are" +response.data)
+        setCustomers(response.data);
+     console.log(customers);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    // Call the fetchUserData function when the component mounts
+    fetchUserData();
+  }, [customers]); 
 
   return (
 
     <div >
-    <div className=' flex bg-blue-200 justify-between  p-3'>
+    <div className=' flex bg-green-50 justify-between  p-3'>
     <div className=' pt-3 ml-2 flex align-middle'>
     <div className="login-container  h-12 w-12 ">
 <img src={logo} alt="Logo" className="logo  h-12 w-12"  />
@@ -133,9 +80,9 @@ const CustomerTable = () => {
    <Sidebar/>
   </div>
     <div className="w-[80%]">
-    <div className='flex flex-row justify center bg-blue-300'>
+    <div className='flex flex-row justify center bg-green-100'>
     <div className='text-center p-3 text-lg font-300'> Add Customer</div>
-    <div className='text-center p-3 text-lg font-300 bg-blue-500'> Customers</div>
+    <div className='text-center p-3 text-lg font-300 bg-green-500'> Customers</div>
 </div>
       <table className="min-w-full border border-gray-200">
         <thead>
@@ -161,16 +108,17 @@ const CustomerTable = () => {
           </tr>
         </thead>
         <tbody className="bg-white border border-gray-200">
-          {customers.map((customer, index) => (
-            <tr key={index}>
-              <td className="px-6 py-4 whitespace-no-wrap">{customer.name}</td>
-              <td className="px-6 py-4 whitespace-no-wrap">{customer.phoneNumber}</td>
-              <td className="px-6 py-4 whitespace-no-wrap">{customer.country}</td>
-              <td className="px-6 py-4 whitespace-no-wrap">{customer.county}</td>
-              <td className="px-6 py-4 whitespace-no-wrap">{customer.town}</td>
-              <td className="px-6 py-4 whitespace-no-wrap">{customer.emailaddress}</td>
-            </tr>
-          ))}
+        {customers.map((customer) => (
+  <tr key={customer.id}>
+    <td className="px-6 py-4 whitespace-no-wrap">{customer.name}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{customer.phoneNumber}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{customer.country}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{customer.county}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{customer.town}</td>
+    <td className="px-6 py-4 whitespace-no-wrap">{customer.emailaddress}</td>
+  </tr>
+))}
+
         </tbody>
       </table>
     </div>

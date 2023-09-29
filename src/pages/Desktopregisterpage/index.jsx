@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button, Img, Input, Line, Text } from "components";
 import logo from "../../assets/image/logo.png";
-import axios from 'axios';
+import axios from "../../axiosConfig";
 
 const DesktopRegisterPage = () => {
+  
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -27,7 +28,7 @@ const DesktopRegisterPage = () => {
 
   const registerUser = async (formData) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/register', formData);
+      const response = await axios.post('/v1/auth/register', formData);
 
       // Handle the response from the server here
       console.log(response.data); // You can display a success message or handle errors

@@ -70,7 +70,7 @@ const Addmeter = () => {
   return (
     <>
     <div>
-    <div className=' flex bg-blue-200 justify-between px-3 '>
+    <div className=' flex bg-green-50 justify-between px-3 '>
       <div className=' p-2 flex align-middle'>
       <div className="login-container  h-12 w-12 ">
 <img src={logo} alt="Logo" className="logo  h-12 w-12"  />
@@ -106,11 +106,11 @@ const Addmeter = () => {
 
       {/* Your content */}
    
-<div className=" bg-blue-50 flex flex-col font-poppins items-start justify-start mx-auto w-[80%]">
+<div className=" bg-lime-50 flex flex-col font-poppins items-start justify-start mx-auto w-[80%]">
 
 
-<div className="flex flex-row justify center bg-blue-300 w-full" >
-    <div className='text-center p-3 text-lg font-500 bg-blue-500'> Add Meter</div>
+<div className="flex flex-row justify center bg-green-100 w-full" >
+    <div className='text-center p-3 text-lg font-500 bg-green-500'> Add Meter</div>
     <div className='text-center p-3 text-lg font-500 '> Meter</div>
         </div>
 

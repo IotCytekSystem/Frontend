@@ -50,8 +50,8 @@ const Admindashboard = () => {
     const fetchUserData = async () => {
       try {
         // Send a GET request to your server's endpoint
-        const response = await axios.get("http://192.168.1.135:8080/api/power/peak");
-        const current = await axios.get("http://192.168.1.135:8080/api/current/peak");
+        const response = await axios.get("/power/peak");
+        const current = await axios.get("/current/peak");
    
         // Update the state with the received data
         setData(response.data);
@@ -93,7 +93,7 @@ const Admindashboard = () => {
   return (
     <>
     <div>
-    <div className=' flex  px-3 bg-white-A700 justify-between '>
+    <div className=' flex  px-3 bg-green-50 justify-between '>
     
       <div className=' p-2   flex align-middle'> 
       <div className="login-container  h-12 w-12 ">
@@ -122,7 +122,7 @@ const Admindashboard = () => {
       )}
     </div>
       </div>
-      <div className="flex bg-gray-50  min-h-screen flex-col font-averiaseriflibre items-center justify-start mx-auto w-full">
+      <div className="flex bg-lime-50  min-h-screen flex-col font-averiaseriflibre items-center justify-start mx-auto w-full">
         <div className="flex md:flex-col flex-row md:gap-[43px] items-start justify-between mx-auto md:px-5 w-full">
        <div className="!sticky !w-[200px] bg-indigo-950 flex  justify-start flex-col h-screen overflow-auto rounded-tl-[10px] top-[2] ">
       

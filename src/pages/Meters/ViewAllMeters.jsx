@@ -49,7 +49,7 @@ const ViewAllCustomer= () => {
 
   return ( 
     <div >
-      <div className=' flex bg-white-A700 justify-between px-3'>
+      <div className=' flex bg-green-50 justify-between px-3'>
       <div className=' p-2 flex align-middle'> 
       <div className="login-container  h-12 w-12 ">
 <img src={logo} alt="Logo" className="logo  h-12 w-12"  />
@@ -85,9 +85,9 @@ const ViewAllCustomer= () => {
    
  
     <div className='w-full'> 
-    <div className='flex flex-row justify center bg-blue-50'>
+    <div className='flex flex-row justify center bg-green-100'>
     <div className='text-center p-3 text-lg font-500'> Add Meter</div>
-    <div className='text-center p-3 text-lg font-500 bg-blue-300'> Meters</div>
+    <div className='text-center p-3 text-lg font-500 bg-yellow-300'> Meters</div>
 </div>
       <table className="min-w-full border border-gray-200">
         <thead>
