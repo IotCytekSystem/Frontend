@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiFillPieChart } from 'react-icons/ai';
 import { SiFuturelearn, SiOpenaccess } from 'react-icons/si';
 import { CgProfile } from 'react-icons/cg';
+import {} from 'react-icons/ai';
 import "./index"
 
 const Menus = [
@@ -26,6 +27,16 @@ const Menus = [
     subMenus: [
       { title: 'Add Meters', path: '/add_meter' },
       { title: 'View Meters', path: '/view_allmeters' },
+    ],
+  },
+  {
+    title: 'profile',
+    path: '/profile',
+    src: <CgProfile />,
+    hasSubMenu: true,
+    subMenus: [
+      
+      { title: 'Edit Profile', path: '/edit_profile' },
     ],
   },
   { title: 'Settings', path: '/setting', src: <CgProfile /> },

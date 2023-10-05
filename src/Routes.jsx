@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CustomerTable from "pages/Customer/CustomerTable";
 import AddMeter from "pages/Meters/AddMeter";
 import ViewallMeters from "pages/Meters/ViewAllMeters"
+// import { client } from "pages/Customer/client";
+import ClientProfile from "components/ClientProfile";
 
 const Desktopregisterpage = React.lazy(() =>import("./pages/Desktopregisterpage/index"),);
 const ForgotPassword =React.lazy(() => import("./pages/ForgotPassword/Index"));
@@ -18,8 +20,8 @@ const ProjectRoutes = () => {
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
         <Routes>
-        
           <Route path="/" element={<Desktoploginpage />} />
+          <Route path="/client-profile" element={<ClientProfile/>} />
 
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path="/add_customer" element ={<Addcustomer/>} />
@@ -29,6 +31,8 @@ const ProjectRoutes = () => {
        <Route path="view_allmeters" element={<ViewallMeters/>} />
           <Route path="/forgot_password" element={<ForgotPassword/>} />
           <Route path="/register"element={<Desktopregisterpage />} />
+          <Route path = "/client_data" element={<client/>} />
+          {/* <Route path = "/edit_profile" element={<Editprofile/>}/> */}
         
   <Route path="/admin_dashboard" element={<Admindashboardpage />} />
                

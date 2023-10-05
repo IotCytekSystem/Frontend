@@ -43,7 +43,8 @@ const Admindashboard = () => {
 
   const [data, setData] = useState([]);
   const [current, setCurrent] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [realtime, setRealtime] = useState([]);
+  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     // Define a function to fetch user data from the server
@@ -52,8 +53,11 @@ const Admindashboard = () => {
         // Send a GET request to your server's endpoint
         const response = await axios.get("/power/peak");
         const current = await axios.get("/current/peak");
+        const realtime= await axios.get("/realtime/data");
+
    
         // Update the state with the received data
+        setRealtime(realtime.data);
         setData(response.data);
 
         setCurrent(current.data)
@@ -73,22 +77,6 @@ const Admindashboard = () => {
   ];
 
   const timestamp = ' 2023-09-21 12:00 PM';
-
-  // const sideBarMenu = [
-  //   {label: "Overview",},   
-  //   {label: "Customer",
-  //     subMenu: [
-  //       { label: "Add Customer" },
-  //       { label: "View List" }, ],},
-
-  //   {label: "Meters", 
-  //   subMenu: [
-  //     { label: "Add Meter" },
-  //     { label: "View Meters" }, ],},
-      
-  //   { label: "Settings",},
-  //   {label: "Log out", },
-  // ];
 
   return (
     <>
@@ -115,6 +103,9 @@ const Admindashboard = () => {
               <button onClick={handleViewSettings}>Profile</button>
             </li>
             <li>
+              <button onClick={handleViewSettings}>Change password</button>
+            </li>
+            <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </ul>
@@ -133,45 +124,7 @@ const Admindashboard = () => {
        />
        </div>
       
-          {/* <Sidebar
-            onClick={() => collapseSidebar(!collapsed)}
-            className="!sticky !w-[213px] bg-black-900 flex h-screen md:hidden justify-start  overflow-auto rounded-tl-[10px] top-[0]"
-          >
-           <div className="login-container">
-      <img src={logo} alt="Logo" className="logo" />
-    </div>
-            <Text
-              className="bg-white-A700 justify-center md:ml-[0] ml-[15px] mr-[39px] mt-[29px] pb-[13px] pt-5 sm:px-5 px-[35px] rounded-[26px] text-[14.08px] text-black-900_01 tracking-[-0.28px] w-[158px]"
-              size="txtAveriaSansLibreRegular1408"
-            >
-              Dashboard
-            </Text>      
-            <Menu
-              menuItemStyles={{
-                button: {
-                  padding: "15px 15px 15px 25px",
-                  gap: "13px",
-                  backgroundColor: "transparent",
-                  marginTop: "55px",
-                  color: "#000000",
-                  fontWeight: 700,
-                  fontSize: "14.08px",
-                  borderRadius: "26px",
-                  [`&:hover, &.ps-active`]: {
-                    color: "#551fff",
-                    backgroundColor: "#f3f0ffff !important",
-                  },
-                },
-              }}
-              className="flex flex-col font-averiasanslibre items-center justify-start mb-[143px] pl-[15px] md:pr-10 sm:pr-5 pr-[49px] pt-[18px] w-[70%]"
-            >
-              {sideBarMenu?.map((menu, i) => (
-                <MenuItem key={`sideBarMenuItem${i}`} {...menu}>
-                  {menu.label}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Sidebar> */}
+          
           <div className="flex flex-1 flex-col items-center justify-start md:mt-0 mt-[20px] w-full">
             <div className="flex flex-row  items-center justify-between w-full">
               <div className="flex flex-col gap-[7px] items-start justify-start">
@@ -181,10 +134,7 @@ const Admindashboard = () => {
                 >
                  Hi <span class="text-blue-600">James</span>, Welcome Back.
                 </Text>
-                {/* <Text
-                  className="bg-clispan-text bg-gradient bg-red-900 text-[15px] text-transparent "
-                  size="txtAveriaSansLibreBold1267"
-                > */}
+            
                  <p className="font-weight-10">Information about your clients power consumption and usages.</p> 
                 {/* </Text> */}
               </div>
@@ -597,84 +547,12 @@ const Admindashboard = () => {
                             /> */}
                             </div>
                         </div>
-                        {/* <Text
-                          className="md:ml-[0] ml-[237px] mt-[58px] text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                          size="txtAdventProBold985"
-                        >
-                          90000kWh
-                        </Text> */}
-                        {/* <div className="flex flex-col items-center justify-start mt-[33px] w-full">
-                          <div className="flex flex-col items-start justify-start w-full">
-                            <div className="flex flex-row items-start justify-between w-full">
-                              <Text
-                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                Yearly Energy
-                              </Text>
-                              <Text
-                                className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                1000000kWh
-                              </Text>
-                            </div>
-                            <div className="md:h-2 h-[5px] mt-[3px] relative w-[92%]">
-                              <Line className="absolute bg-red-50 h-1 inset-[0] justify-center m-auto rounded-sm w-full" />
-                              <Line className="absolute bg-red-A400 h-[5px] inset-[0] justify-center m-auto rounded-sm w-[98%]" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-                
-          {/* {
-            data.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, colIndex) => (
-                  <td key={colIndex}>
-                    <input
-                      type="text"
-                      value={cell}
-                      onChange={(e) =>
-                        this.handleCellChange(rowIndex, colIndex, e.target.value)
-                      }
-                    />
-                  </td>
-                ))}
-              </tr>
-            ))} */}
+                        
+          
             <div className="vertical-container  flex flex-col p-[10px] w-[40%]">
             
     
-            {/* <SelectBox
-                className="bg-white-A100 sm:flex-1 font-bold leading-[normal] sm:mt-0 my-2 px-1.5 py-[11px] rounded-lg text-[12.67px] ml-auto text-gray-900 text-left w-[22%] sm:w-full"
-                placeholderClassName="text-gray-900"
-                // indicator={
-                  // <Img
-                  //   className="h-4 w-4"
-                  //   src="images/img_arrowdown.svg"
-                  //   alt="arrow_down"
-                  // />
-                // }
-                isSearchable={false}
-                placeholder="Wednesday,6 sep 2023"
-                getOptionLabel={(e) => (
-                  <div className="  flex items-center">
-                    <Img
-                      className="h-[17px] mr-[15px] w-4"
-                      src="images/img_calendar.svg"
-                      alt="calendar"
-                    />
-                    <span>{e.label}</span>
-                  </div>
-                )}
-                name="duration"
-                isMulti={false}
-                options={durationOptionsList}
-              /> */}
+            
             {/* Analysis card */}
               <div className="flex flex-col pt-[80px] bg-transparent rounded-lg">
                 {/* Peak power */}
@@ -714,183 +592,12 @@ const Admindashboard = () => {
                 </List>
 
                 <div className="container border border-blue-300  bg-white-A700 rounded-lg mx-auto mt-12">
-      <h1 className="text-lg  font-semibold  "></h1>
+      <h1 className="text-lg  font-semibold  "> </h1>
       <Table data={tableData} timestamp={timestamp} />
     </div>
               </div>
   {/* End of Analysis card */}
-              {/* <div className="mt-[85px] bg-white-A700 flex md:flex-1 flex-col items-center justify-start px-5 pt-5 rounded-[16px] w-[100%] md:w-full">
-        <table>
-          <thead>
-            <tr >
-            <th className=""></th>
-              <th className="  text-red-600   rounded-lg  py-15 "  >Red </th>
-              <th className="  text-blue-600   rounded-lg py-15 ">Blue </th>
-              <th className="  text-yellow-400   rounded-lg  py-15 ">Yellow </th>
-              <th className="  text-green-400    rounded-lg py-15 ">Total</th>
-            </tr>
-            <tr>
-    <th scope="row">V</th>
-    <td className="text-center p-1.5 font-normal text-red-900"><span className="font-light">7</span> </td>
-    <td className="text-center p-1.5 font-normal text-blue-900"><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-yellow-900" ><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-green-900"><span className="font-normal"></span>4,569</td>
-
-
-  </tr>
-  <tr>
-    <th scope="row">I</th>
-    <td className="text-center p-1.5 font-normal text-red-900"><span className="font-light">7</span> </td>
-    <td className="text-center p-1.5 font-normal text-blue-900"><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-yellow-900" ><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-green-900"><span className="font-normal"></span>4,569</td>
-
-
-
-  </tr>
-  <tr>
-    <th scope="row">W</th>
-    <td className="text-center p-1.5 font-normal text-red-900"><span className="font-light">7</span> </td>
-    <td className="text-center p-1.5 font-normal text-blue-900"><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-yellow-900" ><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-green-900"><span className="font-normal"></span>4,569</td>
-
-
-
-  </tr>
-  <tr>
-    <th scope="row">QP</th>
-    <td className="text-center p-1.5 font-normal text-red-900"><span className="font-light">7</span> </td>
-    <td className="text-center p-1.5 font-normal text-blue-900"><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-yellow-900" ><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-green-900"><span className="font-normal"></span>4,569</td>
-
-
-  </tr>
-  <tr>
-    <th scope="row">DP</th>
-    <td className="text-center p-1.5 font-normal text-red-900"><span className="font-light">7</span> </td>
-    <td className="text-center p-1.5 font-normal text-blue-900"><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-yellow-900" ><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-green-900"><span className="font-normal"></span>4,569</td>
-
-
-
-  </tr>
-  <tr>
-    <th scope="row">PF</th>
-    <td className="text-center p-1.5 font-normal text-red-900"><span className="font-light">7</span> </td>
-    <td className="text-center p-1.5 font-normal text-blue-900"><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-yellow-900" ><span className="font-normal"></span>4,569</td>
-    <td className="text-center p-1.5 font-normal text-green-900"><span className="font-normal"></span>4,569</td>
-
-
-    
-  </tr>
-          </thead>
-          <tbody>
-          </tbody>
-            </table>
-      </div> */}
-
- 
-     
-
-     
-
-      
-
-          {/* <div className=" bg-yellow-400 flex md:flex-col   flex-row gap-[27px] items-center justify-between mt-[-35px] w-full">
-                  <div className="   h-[298px] ml-[-4]   relative w-[60%] md:w-full">
-              
-                            </div>
-                      <div className="  bg-white-A700 h-[297px]    rounded-[16px] w-screen">
-                         
-                          <img className="h-10 w-12 pr-3" src={energy} alt=""/>
-                          <Text className="text-[15px]">Total Energy</Text>
-                          <Text className="text-[15px] text-green-300">386kWh</Text>
-                          
-
-                         
-                        
-                          
-                            <div className="flex flex-row  items-start justify-between w-full">
-                             
-                              <Text
-                                className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                Today’s Energy
-                              </Text>
-                              <Text
-                                className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                                size="txtAdventProBold985"
-                              >
-                                385kWh
-                              </Text>
-                            </div>
-                            <div className="flex flex-row items-start justify-between w-full">
-                             
-                             <Text
-                               className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
-                               size="txtAdventProBold985"
-                             >
-                            Monthly Energy
-                             </Text>
-                             <Text
-                               className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                               size="txtAdventProBold985"
-                             >
-                               385kWh
-                             </Text>
-                           </div>
-                           <div className="flex flex-row items-start justify-between w-full">
-                             
-                             <Text
-                               className="text-[9.85px] text-gray-900 tracking-[-0.20px]"
-                               size="txtAdventProBold985"
-                             >
-                             Yearly Energy
-                             </Text>
-                             <Text
-                               className="text-[9.85px] text-gray-900 text-right tracking-[-0.20px]"
-                               size="txtAdventProBold985"
-                             >
-                               385kWh
-                             </Text>
-                           </div>
-                          
-                        
-                      </div>
-                    <div className="absolute flex flex-col   gap-[5px] inset-x-[0] justify-start mx-auto top-[7%] w-[96%]">
-                      <div className="flex flex-row gap-[5px] items-center justify-start  w-full">
-                        <div className="flex flex-col items-start  justify-start">
-                          <Text
-                            className="text-[16.89px] text-gray-900 tracking-[-0.34px]"
-                            size="txtLatoBlack1689"
-                          >
-                            Energy Consumption
-                          </Text>
-                          <Text
-                            className="bg-clip-text bg-gradient   text-[9.85px] "
-                            size="txtAdventProBold985Bluegray400"
-                          >
-                            information on Energy Consuption
-                          </Text>
-                        </div>
-                        
-                      </div>
-                      <div className="flex flex-col bgitems-start justify-start ml-5 md:ml-[0] w-[94%] md:w-full">
-                        <div className="flex flex-col items-center justify-start w-[94%] md:w-full">
-                          <div className="flex flex-row items-center justify-end w-full">
-                           
-                          </div>
-                        </div>
-                    
-                    </div>
-                  </div>
-              </div> */}
-
+             
             
             </div>
             </div>
@@ -899,7 +606,6 @@ const Admindashboard = () => {
           </div>
           </div>
           
-      {/* </div> */}
       </>
   );
 };

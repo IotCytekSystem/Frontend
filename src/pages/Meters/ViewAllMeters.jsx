@@ -69,6 +69,9 @@ const ViewAllCustomer= () => {
               <button onClick={handleViewSettings}>Profile</button>
             </li>
             <li>
+              <button onClick={handleViewSettings}>Change password</button>
+            </li>
+            <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </ul>
