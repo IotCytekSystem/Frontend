@@ -2,7 +2,7 @@ import React,{useState} from "react"
 
 import { Button, Text,} from "components";
 import logo from "../../assets/image/logo.png"
-import axios from 'axios';
+import axios from "../../axiosConfig"
 import Sidebar from "components/Sidebar";
 import profile from "..//..//assets/image/profile.png"
 
@@ -51,15 +51,15 @@ const Addmeter = () => {
   const sendRequest = async () => {
     try {
       const requestData = {
-        SN: SN,
+        serialNumber: SN,
         version: version,
         status:status,
         date:Date,
             };
-      const response = await axios.post('http://localhost:8080/api/clients/add', requestData);
+      const response = await axios.post('/meters/add', requestData);
       console.log("added");
       
-      window.location.href = '/Admindashboard';
+      window.location.href = '/view_allmeters';
  
 
 
@@ -93,7 +93,9 @@ const Addmeter = () => {
               <button onClick={handleViewSettings}>Change password</button>
             </li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button onClick={handleLogout}>Log Out
+              
+              </button>
             </li>
           </ul>
         </div>
@@ -109,25 +111,35 @@ const Addmeter = () => {
 
       {/* Your content */}
    
-<div className=" bg-lime-50 flex flex-col font-poppins items-start justify-start mx-auto w-[80%]">
+<div className="  bg-lime-50 flex flex-col font-poppins items-start justify-start mx-auto w-[80%]">
+
+<div className="flex flex-row justify-start bg-green-100 w-full">
+  <a href="/add_meter" className="text-center p-3 text-lg font-500  hover:bg-green-700 hover:text-white">
+    Add Meter
+  </a>
+  <a href="/view_allmeters" className="text-center p-3 text-lg font-500 hover:bg-green-200 hover:text-green-700">
+    Meter
+  </a>
+</div>
 
 
-<div className="flex flex-row justify center bg-green-100 w-full" >
+{/* <div className="flex flex-row justify center bg-green-100 w-full" >
     <div className='text-center p-3 text-lg font-500 bg-green-500'> Add Meter</div>
     <div className='text-center p-3 text-lg font-500 '> Meter</div>
-        </div>
+        </div> */}
 
-<div className="flex md:flex-col flex-row md:gap-10 gap-[73px] items-center
+
+<div className=" flex md:flex-col flex-row md:gap-10 gap-[73px] items-center
  justify-start ml-4 md:px-5 w-full">
 
-    <div className=" flex justify-center">
+    {/* <div className=" flex justify-center">
     
 
-    </div>        
-        <div className="flex flex-col items-center justify-start w-full">
-          <div className="flex flex-col gap-[49px] items-center justify-start w-full">
+    </div>         */}
+        <div className="flex flex-col items-center justify-center w-full">
+          <div className="flex flex-col gap-[49px] justify-center w-full">
           
-          <div className="flex flex-col gap-3 items-start justify-start w-full">
+          <div className="flex flex-col gap-1 items-start justify-center w-full">
               <Text
                 className="text-[13px]text-black-700"
                 size="txtPoppinsMedium13"
@@ -136,6 +148,7 @@ const Addmeter = () => {
               </Text>
              
               <input
+              
                name="SN"
                placeholder="Enter your SN address"
                className="leading-[normal] p-0  border border-transparent placeholder:text-grey-50 text-base text-left w-[30%]"
@@ -143,6 +156,7 @@ const Addmeter = () => {
                type="SN"
                value={SN}
                onChange={handleSNChange}
+               
               />
            
             </div>
@@ -194,6 +208,7 @@ const Addmeter = () => {
               </Text>
              
               <input
+              required
                name="date"
                placeholder="Enter date  Added"
                className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[30%]"
@@ -201,7 +216,7 @@ const Addmeter = () => {
                type="date"
                value={Date}
                onChange={handledateChange}
-              />
+              ></input>
            
             </div>
           

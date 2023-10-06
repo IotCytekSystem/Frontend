@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AiFillPieChart } from 'react-icons/ai';
+import { AiFillDashboard, AiFillPieChart, AiFillSetting, AiFillWallet } from 'react-icons/ai';
 import { SiFuturelearn, SiOpenaccess } from 'react-icons/si';
 import { CgProfile } from 'react-icons/cg';
 import {} from 'react-icons/ai';
 import "./index"
 
 const Menus = [
-  { title: 'Dashboard', path: '/admin_dashboard', src: <AiFillPieChart /> },
+  { title: 'Dashboard', path: '/admin_dashboard', 
+src : <AiFillDashboard/>,
+},
   {
     title: 'Customer',
     path: '/customer',
-    src: <SiFuturelearn />,
+    src:<CgProfile/>,
     hasSubMenu: true,
     subMenus: [
       
@@ -22,7 +24,7 @@ const Menus = [
   {
     title: 'Meters',
     path: '/meters',
-    src: <CgProfile />,
+    src: <AiFillWallet/>,
     hasSubMenu: true,
     subMenus: [
       { title: 'Add Meters', path: '/add_meter' },
@@ -39,7 +41,7 @@ const Menus = [
       { title: 'Edit Profile', path: '/edit_profile' },
     ],
   },
-  { title: 'Settings', path: '/setting', src: <CgProfile /> },
+  { title: 'Settings', path: '/setting', src: <AiFillSetting/>},
   { title: 'LogOut', path: '/', src: <SiOpenaccess />, gap: true },
 ];
 

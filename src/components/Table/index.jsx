@@ -5,22 +5,22 @@ import axios from 'axios';
 const Table = ({ data, timestamp }) => {
 
   const [loading, setLoading] = useState(true);
+ const [response,setResponse] = useState([]);
+  // const [rrc,setRrc]= useState([]);
+  // const [rrp,setRrp] = useState([]);
+  // const [rrv,setRrv] = useState([]);
 
-  const [rrc,setRrc]= useState([]);
-  const [rrp,setRrp] = useState([]);
-  const [rrv,setRrv] = useState([]);
+  // const [ryc,setRyc]= useState([]);
+  // const [ryp,setRyp] = useState([])
+  // const [ryv,setRyv] = useState([])
 
-  const [ryc,setRyc]= useState([]);
-  const [ryp,setRyp] = useState([])
-  const [ryv,setRyv] = useState([])
+  // const [rbc,setRbc]= useState([]);
+  // const [rbp,setRbp] = useState([])
+  // const [rbv,setRbv] = useState([])
 
-  const [rbc,setRbc]= useState([]);
-  const [rbp,setRbp] = useState([])
-  const [rbv,setRbv] = useState([])
-
-  const totalV= rrv+ryv+rbv;
-  const totalC= rrc+ryc+rbc;
-  const totalP= rrp+ryp+rbp;
+  // const totalV= rrv+ryv+rbv;
+  // const totalC= rrc+ryc+rbc;
+  // const totalP= rrp+ryp+rbp;
 
 
 
@@ -34,31 +34,31 @@ const Table = ({ data, timestamp }) => {
 
 // Realtime data
  const response= await axios.get("http://192.168.1.135:8080/api/realtime/data");
- const rrc = await axios.get("http://192.168.1.135:8080/api/realtime/red/current");
-  const rrp = await axios.get("http://192.168.1.135:8080/api/realtime/red/power");
-  const rrv = await axios.get("http://192.168.1.135:8080/api/realtime/red/voltage");
+//  const rrc = await axios.get("http://192.168.1.135:8080/api/realtime/red/current");
+//   const rrp = await axios.get("http://192.168.1.135:8080/api/realtime/red/power");
+//   const rrv = await axios.get("http://192.168.1.135:8080/api/realtime/red/voltage");
         
-  const ryc = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/current");
-  const ryp = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/power");
-  const ryv = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/voltage");
+//   const ryc = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/current");
+//   const ryp = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/power");
+//   const ryv = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/voltage");
         
-  const rbc = await axios.get("http://192.168.1.135:8080/api/realtime/blue/current");
-  const rbp = await axios.get("http://192.168.1.135:8080/api/realtime/blue/power");
-  const rbv = await axios.get("http://192.168.1.135:8080/api/realtime/blue/voltage");
+//   const rbc = await axios.get("http://192.168.1.135:8080/api/realtime/blue/current");
+//   const rbp = await axios.get("http://192.168.1.135:8080/api/realtime/blue/power");
+//   const rbv = await axios.get("http://192.168.1.135:8080/api/realtime/blue/voltage");
         
         // Update the state with the received data
-        setRrc(rrc.data);
-        setRrp(rrp.data);
-        setRrv(rrv.data);
+      //   setRrc(rrc.data);
+      //   setRrp(rrp.data);
+      //   setRrv(rrv.data);
 
-       setRyc(ryc.data);
-       setRyp(ryp.data);
-       setRyv(ryv.data);
+      //  setRyc(ryc.data);
+      //  setRyp(ryp.data);
+      //  setRyv(ryv.data);
 
-       setRbc(rbc.data);
-       setRbp(rbp.data);
-       setRbv(rbv.data);
-
+      //  setRbc(rbc.data);
+      //  setRbp(rbp.data);
+      //  setRbv(rbv.data);
+        setResponse()
 
         setLoading(false); // Set loading to false once data is received
 
@@ -94,16 +94,16 @@ const Table = ({ data, timestamp }) => {
                 V
               </td>
               <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
-              {rrc}
+              {}
               </td>
               <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
-               {ryc}
+               {}
               </td>
               <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
-               {rbc}
+               {}
               </td>
               <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
-             {totalC}
+             {}
               </td>
             </tr>
           ))}
@@ -114,16 +114,16 @@ const Table = ({ data, timestamp }) => {
               I
             </td>
             <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
-        {rrp}
+        {}
             </td>
             <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
-            {ryp}
+            {}
             </td>
             <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
-             {rbp}
+             {}
             </td>
             <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
-      {totalP}
+      {}
             </td>
           </tr>
         ))}
@@ -134,16 +134,16 @@ const Table = ({ data, timestamp }) => {
               W
             </td>
             <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
-            {rrv}
+            {}
             </td>
             <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
-            {ryv}
+            {}
             </td>
             <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
-             {rbv}
+             {}
             </td>
             <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
-          {totalV}
+          {}
             </td>
           </tr>
         ))}

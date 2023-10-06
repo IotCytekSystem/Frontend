@@ -4,15 +4,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 import ClientProfile from './components/ClientProfile';
 
-function client() {
+function editProfile() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="Profile">
+      <p>user </p>
         <ClientProfile />
       </div>
     </Provider>
   );
 }
 
-export default client;
+export default editProfile;
 

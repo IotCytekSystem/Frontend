@@ -45,6 +45,7 @@ const Input = React.forwardRef(
           {!!label && label}
           {!!prefix && prefix}
           <input
+          required
             ref={ref}
             className={`${className} bg-transparent border-0`}
             type={type}

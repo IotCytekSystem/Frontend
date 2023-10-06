@@ -5,6 +5,7 @@ import logo from "../../assets/image/logo.png"
 import axios from '../../axiosConfig';
 import Sidebar from "components/Sidebar";
 import profile from "..//..//assets/image/profile.png"
+import { Link } from "react-router-dom";
 
 
 
@@ -136,10 +137,22 @@ const Addcustomer = () => {
 <div className=" bg-lime-50 flex flex-col font-poppins items-start justify-start mx-2 w-[80%]">
 
 
-<div className="flex flex-row justify center bg-green-100 w-full" >
-    <div className='text-center p-3 text-lg font-500 bg-green-500'> Add Customer</div>
-    <div className='text-center p-3 text-lg font-500 '> Customer</div>
-        </div>
+{/* <div className="flex flex-row justify center bg-green-100 w-full" >
+    <div className='text-center p-3 text-lg font-500 bg-green-500'> Add Customer 
+    </div>
+    <div className='text-center p-3 text-lg font-500 '> Customer
+    </div>
+        </div> */}
+
+        <div className="flex flex-row justify-start bg-green-100 w-full">
+  <a href="/add_customer" className="text-center p-3 text-lg font-500 hover:bg-green-700">
+    Add Customer
+  </a>
+  <a href="/view_allcustomer" className="text-center p-3 text-lg font-500 hover:text-green-700">
+    Customer
+  </a>
+</div>
+
 
 <div className="flex md:flex-col flex-row md:gap-10 gap-[73px] items-center
  justify-start ml-4 md:px-5 w-full">

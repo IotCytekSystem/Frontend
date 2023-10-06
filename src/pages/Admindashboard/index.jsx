@@ -41,9 +41,8 @@ const Admindashboard = () => {
   const { collapseSidebar, collapsed } = useProSidebar();
 
 
-  const [data, setData] = useState([]);
+  const [power, setPower] = useState([]);
   const [current, setCurrent] = useState([]);
-  const [realtime, setRealtime] = useState([]);
   const [loading,setLoading] = useState(true);
 
   useEffect(() => {
@@ -51,17 +50,16 @@ const Admindashboard = () => {
     const fetchUserData = async () => {
       try {
         // Send a GET request to your server's endpoint
-        const response = await axios.get("/power/peak");
+        const power = await axios.get("/power/peak");
         const current = await axios.get("/current/peak");
-        const realtime= await axios.get("/realtime/data");
 
    
         // Update the state with the received data
-        setRealtime(realtime.data);
-        setData(response.data);
+        setPower(power.data.data);
 
         setCurrent(current.data)
         setLoading(false); // Set loading to false once data is received
+        console.log(power)
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -565,16 +563,16 @@ const Admindashboard = () => {
                 <div className=" bg-white-A700 h-30 w-[80%]  mt-[-4] rounded-xl border border-blue-300 shadow-lg gap-3 ring-red-600 p-1" >
                   <div className="flex  flex-col items-center ">
                   <img className="h-6 w-6 mt-1" src={power} alt=""/>
-                  <span className=" bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center  p-1 ">Peak Power</span>
+                  <span className=" bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center  p-1 ">Peak Powers</span>
                   </div>
-                  <div className="text-center text-green-500">{data[0]}<span className="text-green-400  pl-1">W</span></div>
+                  <div className="text-center text-green-500">{power}<span className="text-green-400  pl-1">W</span></div>
 
                 </div>
                 {/* Peak current */}
                 <div className=" bg-white-A700 h-30 w-[80%]  mt-[-4]  gap-3 rounded-xl border border-blue-300 rounded-xl shadow-lg ring-red-600 p-1 ">
                   <div className="flex flex-col items-center ">
                   <img className="h-6 w-6 mt-1 " src={Current} alt=""/>
-                  <span className="bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center p-1">Peak Current</span>
+                  <span className="bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center p-1">Peak Current {power}</span>
                   </div>
                   <div className="text-center text-green-500">{current[0]}<span className="text-green-400 mb-2  pl-1 ">A</span></div>
                 </div>
