@@ -64,7 +64,7 @@ const ClientProfile = () => {
 {/* <div className=' flex flex-row justify-between bg-red-900'>  */}
 
 <div className="flex flex-row justify-between items-center bg-gray-100">
-<div className='bg-blue-600 mt-[-28px]'>
+<div className='bg-blue-600 mt-[2px]'>
 <Sidebar/>
 
 </div>

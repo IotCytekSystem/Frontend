@@ -28,13 +28,12 @@ const ProjectRoutes = () => {
           <Route path="/layout" element={<Layout/>} />
           <Route path ="/view_allcustomer" element = {<CustomerTable/>} />
           <Route path="add_meter" element={<AddMeter/>}/>
-       <Route path="view_allmeters" element={<ViewallMeters/>} />
+          <Route path="view_allmeters" element={<ViewallMeters/>} />
           <Route path="/forgot_password" element={<ForgotPassword/>} />
           <Route path="/register"element={<Desktopregisterpage />} />
           <Route path = "/client_data" element={<client/>} />
           <Route path = "/profile" element={<ClientProfile />}/>
-        
-  <Route path="/admin_dashboard" element={<Admindashboardpage />} />
+         <Route path="/admin_dashboard" element={<Admindashboardpage />} />
                
 
         </Routes>

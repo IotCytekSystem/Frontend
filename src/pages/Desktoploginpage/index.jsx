@@ -1,190 +1,141 @@
-import React, {useState} from "react";
-
-import { Button, CheckBox, Img, Input,Text } from "components";
-// import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, CheckBox, Img, Input, Text } from "components";
 import { Link } from 'react-router-dom';
 import logo from "../../assets/image/logo.png";
 import axios from '../../axiosConfig';
-
+import { useDispatch} from 'react-redux';
+import { loginUser } from "store/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const DesktoploginpagePage = () => {
 
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-  
-  
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  
-  
-
-  const sendRequest = async () => {
-    try {
-      const requestData = {
-        email: email,
-        password: password,
-      };
-      const response = await axios.post('/api/v1/auth/login', requestData);
-      console.log("logged in");
-      
-      window.location.href = '/Admindashboard';
  
+const dispatch=useDispatch ();
+const navigate=useNavigate();
 
+  const handleLogin =(e) => {
+    e.preventDefault();
+   let userCredentials={
+    email,password
+   };
+   dispatch(loginUser(userCredentials)).then((result)=>{
+    if (result.payload){
+      setEmail('');
+      setPassword('');
+      navigate('/admin_dashboard')
 
-    } catch (error) {
-      // Handle network errors or other exceptions
-      console.error('Error:', error);
     }
+   });
   };
-  
-  
 
   return (
     <>
-      <div className="bg-black-900 flex flex-col font-poppins items-start justify-start mx-auto w-full">
-        <div className="flex md:flex-col flex-row md:gap-10 gap-[73px] items-start justify-start md:px-5 w-[95%] md:w-full">
-          <div className="h-[900px] relative w-[64%] md:w-full">
-            <Img
-              className="absolute h-[900px] inset-[0] justify-center m-auto object-cover rounded-br-[40px] rounded-tr-[40px] w-full"
-              src="images/img_rectangle12.png"
-              alt="rectangleTwelve"
-            />
-            <div className="absolute bg-white-A700_19 flex flex-col h-max inset-[0] items-center justify-center m-auto p-[17px] rounded-[40px] w-20">
-              <Img
-                className="h-[46px] w-[46px]"
-                src="images/img_play.svg"
-                alt="play"
-              />
-            </div>
-            <div className="absolute bg-blue_gray-100_26 h-[900px] inset-[0] justify-center m-auto w-full"></div>
-          </div>
-          <div className="flex flex-col gap-[30px] justify-start md:mt-0 mt-[74px] w-[32%] md:w-full">
-       
-            <div className=" flex justify-center">
-            
-            <div className="login-container">
-      <img src={logo} alt="Logo" className="logo" />
-    </div>
+     <div className="bg-custom_blue-500 font-poppins h-screen mx-auto relative w-full]">
+        <Img
+          className="h-20 ml-[391px] my-auto w-20"
+          src="images/img_play_white_a700.svg"
+          alt="play"
+        />
+   <div className="absolute bg-custom_blue-500 flex flex-col  inset-[0] items-start justify-center m-auto w-full">
+   <div className="flex md:flex-col flex-row md:gap-10 gap-[69px] items-center justify-start md:px-5 w-[95%]">
 
+   <div className=" relative w-[64%] md:w-full">
+              <Img
+                className="absolute h-screen  inset-[0] justify-center m-auto object-cover rounded-br-[40px] rounded-tr-[40px] w-full"
+                src="images/img_rectangle12.png"
+                alt="rectangleThirteen"
+              />
+              <div className="absolute bg-white-A700_19 flex flex-col h-max inset-[0] items-center justify-center m-auto p-[17px] rounded-[50%] w-20">
+                <Img
+                  className="h-[46px] w-[46px]"
+                  src="images/img_play.svg"
+                  alt="play_One"
+                />
+              </div>
+              <div className="absolute bg-blue_gray-100_26 h-[900px] inset-[0] justify-center m-auto"></div>
             </div>
-            <div className="flex flex-col items-center justify-start w-full">
-              <div className="flex flex-col gap-[50px] items-start justify-start w-full">
-                <div className="flex flex-col gap-5 items-start justify-start ml-0.5 md:ml-[0] w-[68%] md:w-full">
+      <div className="bg-custom_blue-500 flex flex-col font-poppins items-center justify-start mx-auto ">
+      <div className="">
+                <img src={logo} alt="Logo" className="logo" />
+                {/* Your login form */}
+              </div>
+              
+        <form onSubmit={handleLogin}> {/* Wrap the content in a form */}
+      
+          <div className="flex md:flex-col flex-col md:gap-10 gap-[73px] items-start justify-start md:px-5 w-[95%] md:w-full">
+            {/* ... (rest of your code) */}
+
+            <div className="flex justify-start">
                   <Text
-                    className="text-3xl sm:text-[26px] md:text-[28px] text-white-A700"
+                    className="text-2xl  text-white-A700"
                     size="txtPoppinsMedium30"
                   >
-                    Sign in
+                    Sign up
                   </Text>
-                 
-                
                 </div>
-                <div className="flex flex-col items-center justify-start w-full">
-                  <div className="flex flex-col gap-[49px] items-center justify-start w-full">
-                    <div className="flex flex-col gap-3 items-start justify-start w-full">
-                      <Text
-                        className="text-[13px] text-white-A700"
-                        size="txtPoppinsMedium13"
-                      >
-                        Email
-                      </Text>
-                  
-                      <input
-                       name="email"
-                       placeholder="Enter your email address"
-                       className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
-                       wrapClassName="flex w-full"
-                       type="email"
-                       value={email}
-                       onChange={handleEmailChange}
-                      />
-                   
-                    </div>
-                    <div className="flex flex-col items-center justify-start w-full">
-                      <div className="flex flex-col items-start justify-start w-full">
-                        <Text
-                          className="ml-0.5 md:ml-[0] text-[13px] text-white-A700"
-                          size="txtPoppinsMedium13"
-                        >
-                          Password
-                        </Text>
-
-                        <div className="flex flex-row items-end justify-between mt-3 w-full">
-                          <div className="flex flex-row gap-2 items-start justify-start">
-                                              
-                          </div>
-                          <input
-                       name="password"
-                       placeholder="Enter your password"
-                       className="leading-[normal] p-0 placeholder:text-white-A700 text-base text-left w-full"
-                       wrapClassName="flex w-full"
-                       type="password"
-                       value={password}
-                       onChange={handlePasswordChange}
-                      />
-                        
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-row items-start justify-between mt-4 w-full">
-                   
-                    <Text
-                      className="text-white-A700 text-xs"
-                      size="txtPoppinsLight12"
-                    >
-               <Link to ="/ForgotPassword">ForgotPassword</Link>
-                    </Text>
-                  </div>
-                 
-                  <Button onClick={sendRequest} className="cursor-pointer font-medium leading-[normal] min-w-[429px] sm:min-w-full mt-[58px] rounded-[26px] text-[17px] text-center">
-                
-                 Login
-                  </Button>
-                </div>
-              </div>
-              <a
-                href="javascript:"
-                className="mt-[38px] text-base text-gray-400"
+            <div className="flex flex-col gap-2  mt-[-4px] items-start justify-start w-full">
+              <Text
+                className="text-[13px] text-white-A700"
+                size="txtPoppinsMedium13"
               >
-                <Text size="txtPoppinsMedium16">or continue with</Text>
-              </a>
-              <div className="flex flex-col items-center justify-start mt-[31px] w-[39%] md:w-full">
-                <div className="flex flex-row items-center justify-between w-full">
-                  <Img
-                    className="h-[41px] md:h-auto object-cover w-[41px]"
-                    src="images/img_facebook.png"
-                    alt="facebook"
-                  />
-                  <div className="md:h-9 h-[41px] p-0.5 relative w-[41px]">
-                    <Img
-                      className="h-9 m-auto w-9"
-                      src="images/img_globe.svg"
-                      alt="globe"
-                    />
-                    <Img
-                      className="absolute h-5 inset-x-[0] mx-auto top-[20%]"
-                      src="images/img_volume.svg"
-                      alt="volume"
-                    />
-                  </div>
-                  <Img
-                    className="h-[41px] w-[41px]"
-                    src="images/img_google.svg"
-                    alt="google"
+                Email
+              </Text>
+              <input className="rounded-lg text-black"
+                type="text"
+                id="username"
+                name="username"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
+                required // Add the "required" attribute
+              />
+            </div>
+            <div className="flex flex-col items-center justify-start w-full">
+              <div className="flex flex-col items-start justify-start w-full">
+                <Text
+                  className="ml-0.5 md:ml-[0] text-[13px] text-white-A700"
+                  size="txtPoppinsMedium13"
+                >
+                  Password
+                </Text>
+                <div className="flex flex-row items-end justify-between mt-3 w-full">
+                  <div className="flex flex-row gap-2 items-start justify-start"></div>
+                  <input className="rounded-lg text-black"
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
+                        required // Add the "required" attribute
                   />
                 </div>
               </div>
-\            </div>
+            </div>
           </div>
+          <div className="flex justify-center mt-3">
+          <button  type="submit" >
+          
+        <div className="text-white-A700 items-center bg-yellow-500 px-4 py-2 mx-auto  hover:bg-yellow-300 rounded-[26px] shadow-bs">  
+      Login
         </div>
+          </button>
+          </div>
+        </form>
+
+        <div className="flex flex-row items-start justify-between mt-4 w-full">
+            <Text
+              className="text-white-A700 text-xs"
+              size="txtPoppinsLight12"
+            >
+              <Link to="/forgot_password">ForgotPassword</Link>
+            </Text>
+          </div>
+        {/* ... (rest of your code) */}
+      </div>
+      </div>
+      </div>
       </div>
     </>
   );

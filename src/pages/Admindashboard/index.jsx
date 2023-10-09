@@ -9,7 +9,8 @@ import profile from "../../assets/image/profile.png"
 import energies from "../../assets/image/yield.png"
 import consumption from "../../assets/image/Consumption.png";
 import balance from "../../assets/image/balance.png";
-import power from "../../assets/image/power.png";
+import peak from "../../assets/image/peak.png"
+// import power from "../../assets/image/power.png";
 import energy from "../../assets/image/energy.png";
 import Current from "../../assets/image/circuit.png";
 import Table from "components/Table";
@@ -55,12 +56,13 @@ const Admindashboard = () => {
 
    
         // Update the state with the received data
-        setPower(power.data.data);
+        setPower(power.data);
 
         setCurrent(current.data)
         setLoading(false); // Set loading to false once data is received
         console.log(power)
-      } catch (error) {
+      } 
+      catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
@@ -562,10 +564,10 @@ const Admindashboard = () => {
               <div className="flex bg-transparent space-x-3  mx-[-1] w-full   px-[4px]">
                 <div className=" bg-white-A700 h-30 w-[80%]  mt-[-4] rounded-xl border border-blue-300 shadow-lg gap-3 ring-red-600 p-1" >
                   <div className="flex  flex-col items-center ">
-                  <img className="h-6 w-6 mt-1" src={power} alt=""/>
+                  <img className="h-6 w-6 mt-1" src={peak} alt=""/>
                   <span className=" bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center  p-1 ">Peak Powers</span>
                   </div>
-                  <div className="text-center text-green-500">{power}<span className="text-green-400  pl-1">W</span></div>
+                  <div className="text-center text-green-500">{}<span className="text-green-400  pl-1">W</span></div>
 
                 </div>
                 {/* Peak current */}
