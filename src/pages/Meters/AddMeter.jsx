@@ -104,14 +104,13 @@ const Addmeter = () => {
     
     <div className="flex flex-row">
 
-    <div className="w-[18%] bg-blue-950">
      <Sidebar/>
-      </div>
+ 
     
 
       {/* Your content */}
    
-<div className="  bg-lime-50 flex flex-col font-poppins items-start justify-start mx-auto w-[80%]">
+<div className="  bg-lime-50 flex flex-col font-poppins items-start justify-start mx-auto w-[90%]">
 
 <div className="flex flex-row justify-start bg-green-100 w-full">
   <a href="/add_meter" className="text-center p-3 text-lg font-500  hover:bg-green-700 hover:text-white">

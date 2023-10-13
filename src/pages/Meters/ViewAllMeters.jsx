@@ -104,14 +104,11 @@ const ViewAllCustomer= () => {
       )}
     </div>     
     </div>
-  <div className='flex flex-row   '>
-
-     <div  className=' bg-blue-950 h-screen w-[18%]'>
-
-    
+  <div className='flex flex-row  '>
+<div className='w-[18%]'>
+     
      <Sidebar/>
-    </div>
-   
+     </div>
     <div className='w-full'> 
     <div className="flex flex-row justify-start bg-green-100">
   <a href="/add_meter" className="text-center p-3 text-lg font-500 hover:bg-green-300 hover:text-white">

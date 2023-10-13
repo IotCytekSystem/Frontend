@@ -1,67 +1,44 @@
 import React,{useState,useEffect} from 'react';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 
 const Table = ({ data, timestamp }) => {
 
   const [loading, setLoading] = useState(true);
- const [response,setResponse] = useState([]);
-  // const [rrc,setRrc]= useState([]);
-  // const [rrp,setRrp] = useState([]);
-  // const [rrv,setRrv] = useState([]);
+  const [realtime, setRealtime] = useState([]);
 
-  // const [ryc,setRyc]= useState([]);
-  // const [ryp,setRyp] = useState([])
-  // const [ryv,setRyv] = useState([])
+const totalVoltage=realtime.redVoltage+ realtime.blueVoltage+realtime.yellowVoltage;
+const totalCurrent=realtime.redCurrent+ realtime.blueCurrent+realtime.yellowCurrent;
+const totalPower=realtime.redPower+ realtime.bluePower+realtime.yellowPower;
+ 
+//     const fetchUserData = async () => {
+//       try {
+//  const response= await axios.get("/realtime/data");
+       
+//         console.log("data is" +response.data)
+//         setRealtime(response.data)
+//         setLoading(false); // Set loading to false once data is receive
+//       } catch (error) {
+//         console.error("Error fetching user data:", error);
+//       }
+//     };
+//     useEffect(() => {
 
-  // const [rbc,setRbc]= useState([]);
-  // const [rbp,setRbp] = useState([])
-  // const [rbv,setRbv] = useState([])
-
-  // const totalV= rrv+ryv+rbv;
-  // const totalC= rrc+ryc+rbc;
-  // const totalP= rrp+ryp+rbp;
-
-
-
-
+//     // Call the fetchUserData function when the component mounts
+//     fetchUserData();
+//   }, []); 
 
 
   useEffect(() => {
+    // Define a function to fetch user data from the server
     const fetchUserData = async () => {
       try {
-      
-
-// Realtime data
- const response= await axios.get("http://192.168.1.135:8080/api/realtime/data");
-//  const rrc = await axios.get("http://192.168.1.135:8080/api/realtime/red/current");
-//   const rrp = await axios.get("http://192.168.1.135:8080/api/realtime/red/power");
-//   const rrv = await axios.get("http://192.168.1.135:8080/api/realtime/red/voltage");
-        
-//   const ryc = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/current");
-//   const ryp = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/power");
-//   const ryv = await axios.get("http://192.168.1.135:8080/api/realtime/yellow/voltage");
-        
-//   const rbc = await axios.get("http://192.168.1.135:8080/api/realtime/blue/current");
-//   const rbp = await axios.get("http://192.168.1.135:8080/api/realtime/blue/power");
-//   const rbv = await axios.get("http://192.168.1.135:8080/api/realtime/blue/voltage");
-        
+        console.log("trying to fetch customers...")
+        // Send a GET request to your server's endpoint
+        const response = await axios.get("/realtime/data");
         // Update the state with the received data
-      //   setRrc(rrc.data);
-      //   setRrp(rrp.data);
-      //   setRrv(rrv.data);
-
-      //  setRyc(ryc.data);
-      //  setRyp(ryp.data);
-      //  setRyv(ryv.data);
-
-      //  setRbc(rbc.data);
-      //  setRbp(rbp.data);
-      //  setRbv(rbv.data);
-        setResponse()
-
-        setLoading(false); // Set loading to false once data is received
-
+        console.log("real time="+response.data)
+        setRealtime(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -69,13 +46,13 @@ const Table = ({ data, timestamp }) => {
 
     // Call the fetchUserData function when the component mounts
     fetchUserData();
-  }, []); 
-
-
+  }); 
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full">
+    
+    // <div className="overflow-x-auto">
+    <div>
+      <table className="md:min-w-full">
         <thead>
           <tr>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider"></th>
@@ -87,134 +64,138 @@ const Table = ({ data, timestamp }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-          
-            <tr key={item.id}>
-              <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+     
+    
+  <tr>
+ 
+
+              <td className="px-2 py-4 whitespace-no-wrap border-b border-gray-300">
                 V
               </td>
-              <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
-              {}
+              <td className="px-2 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
+            {realtime.redVoltage}
               </td>
-              <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
-               {}
+              <td className="px-2 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
+              {realtime.yellowVoltage}
               </td>
-              <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
-               {}
+              <td className="px-2 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
+             
+              {realtime.blueVoltage}
               </td>
-              <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
-             {}
+              <td className="px-2 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
+             {totalVoltage}
               </td>
             </tr>
-          ))}
-          {data.map((item) => (
+   
           
-          <tr key={item.id}>
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+          <tr >
+            <td className="px-2 py-4 whitespace-no-wrap border-b border-gray-300">
               I
             </td>
-            <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
-        {}
+            <td className="px-2 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
+        {realtime.redCurrent}
             </td>
-            <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
-            {}
+            <td className="px-2 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
+            {realtime.yellowCurrent}
             </td>
-            <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
-             {}
+            <td className="px-2 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
+             {realtime.blueCurrent}
             </td>
-            <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
-      {}
+            <td className="px-2 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
+      {totalCurrent}
             </td>
           </tr>
-        ))}
-        {data.map((item) => (
+       
+       
           
-          <tr key={item.id}>
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+          <tr >
+            <td className="px-2 py-4 whitespace-no-wrap border-b border-gray-300">
               W
             </td>
-            <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
-            {}
+            <td className="px-2 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
+            {realtime.redPower}
             </td>
-            <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
-            {}
+            <td className="px-2 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
+            {realtime.yellowPower}
             </td>
-            <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
-             {}
+            <td className="px-2 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
+             {realtime.bluePower}
             </td>
-            <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
-          {}
+            <td className="px-2 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
+          {totalPower}
             </td>
           </tr>
-        ))}
-        {data.map((item) => (
+       
+      
           
-          <tr key={item.id}>
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+          <tr >
+            <td className="px-2 py-4 whitespace-no-wrap border-b border-gray-300">
               QP
             </td>
-            <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
           </tr>
-        ))}
-          {data.map((item) => (
+     
+        
           
-          <tr key={item.id}>
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+          <tr>
+            <td className="px-2 py-4 whitespace-no-wrap border-b border-gray-300">
               DP
             </td>
-            <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
           </tr>
-        ))}
-        {data.map((item) => (
-          
-          <tr key={item.id}>
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
+       
+          <tr >
+            <td className="px-2 py-4 whitespace-no-wrap border-b border-gray-300">
               PF
             </td>
-            <td className="px-6 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-red-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-yellow-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-blue-500  whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
-            <td className="px-6 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
+            <td className="px-2 py-4 text-green-500 whitespace-no-wrap border-b border-gray-300">
              2344
             </td>
           </tr>
-        ))}
+      
         </tbody>
       </table>
       <div className="mt-4 text-blue-500 text-center">
-        <span className="font-semibold "> </span>
-        {timestamp}
+        <span className="font-semibold "> {realtime.day} </span>
+        <span className="font-semibold "> {realtime.date} </span>
+        <span className="font-semibold "> {realtime.time} </span>
+        
       </div>
+    
     </div>
-  );
+ );
+
 };
 
 export default Table;

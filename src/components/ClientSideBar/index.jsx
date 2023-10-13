@@ -1,22 +1,10 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { AiFillDashboard, AiFillPieChart, AiFillSetting, AiFillWallet } from 'react-icons/ai';
-// import { SiFuturelearn, SiOpenaccess } from 'react-icons/si';
-// import { CgProfile } from 'react-icons/cg';
-// import {} from 'react-icons/ai';
-// import "./index"
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  AiFillDashboard,
-  AiFillSetting,
-  AiFillWallet,
-} from 'react-icons/ai';
+import { AiFillDashboard, AiFillPieChart, AiFillSetting, AiFillWallet } from 'react-icons/ai';
 import { SiFuturelearn, SiOpenaccess } from 'react-icons/si';
-
 import { CgProfile } from 'react-icons/cg';
-import '../../styles/index.css'; // Import your CSS file.
+import {} from 'react-icons/ai';
+import "./index"
 
 const Menus = [
   { title: 'Dashboard', path: '/admin_dashboard', 
@@ -29,8 +17,7 @@ src : <AiFillDashboard/>,
     hasSubMenu: true,
     subMenus: [
       
-      { title: 'Add Customer', path: '/add_customer' },
-      { title: 'View Customers', path: '/view_allcustomer' },
+     
     ],
   },
   {
@@ -39,8 +26,6 @@ src : <AiFillDashboard/>,
     src: <AiFillWallet/>,
     hasSubMenu: true,
     subMenus: [
-      { title: 'Add Meters', path: '/add_meter' },
-      { title: 'View Meters', path: '/view_allmeters' },
     ],
   },
   {
@@ -57,14 +42,8 @@ src : <AiFillDashboard/>,
   { title: 'LogOut', path: '/', src: <SiOpenaccess />, gap: true },
 ];
 
-
 const Sidebar = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
-  const [showMenu, setShowMenu] = useState(false);
-
-  const handleMenuToggle = () => {
-    setShowMenu(!showMenu);
-  };
 
   const handleSubMenuClick = (index) => {
     if (openSubMenu === index) {
@@ -73,31 +52,12 @@ const Sidebar = () => {
       setOpenSubMenu(index);
     }
   };
-// const Sidebar = () => {
-//   const [openSubMenu, setOpenSubMenu] = useState(null);
-
-//   const handleSubMenuClick = (index) => {
-//     if (openSubMenu === index) {
-//       setOpenSubMenu(null);
-//     } else {
-//       setOpenSubMenu(index);
-//     }
-//   };
-
 
   return (
-    // <div className="sidebar">
-    //   <ul className='flex flex-col   space-y-4'>
-    //     {Menus.map((menu, index) => (
-    //       <li key={index}>
-
-    <div className={`sidebar ${showMenu ? 'open' : ''}`}>
-    <div className="menu-toggle" onClick={handleMenuToggle}>
-      <div className="hamburger-icon">&#9776;</div>
-    </div>
-    <ul className="flex flex-col space-y-4">
-      {Menus.map((menu, index) => (
-        <li key={index}>
+    <div className="sidebar">
+      <ul className='flex flex-col   space-y-4'>
+        {Menus.map((menu, index) => (
+          <li key={index}>
             {menu.hasSubMenu ? (
               <div>
                 <div

@@ -124,12 +124,12 @@ const Addcustomer = () => {
     
     <div className="flex flex-row">
 
-    <div className="w-[18%] bg-blue-950">
+    {/* <div className="w-[18%]"> */}
 
 
    
      <Sidebar/>
-      </div>
+      {/* </div> */}
     
 
       {/* Your content */}
@@ -332,7 +332,9 @@ const Addcustomer = () => {
          <div className="flex flex-row ml-10 w-full  ">
           <Button onClick={sendRequest} className="cursor-pointer font-medium leading-[normal] min-w-[50px] sm:min-w-full mt-[40px] rounded-[15px] text-[17px] text-center">
         
-         Add Customer
+         
+         <Link to="/view_allcustomer">Add Customer</Link>
+
           </Button>
           <Button onClick={sendRequest} className="cursor-pointer font-medium leading-[normal] min-w-[50px] sm:min-w-full mt-[40px] rounded-[15px] ml-5 text-[17px] text-center">
         

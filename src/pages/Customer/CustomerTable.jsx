@@ -109,10 +109,9 @@ useEffect(() => {
       )}
     </div>    </div>
 <div className='flex flex-row   '>
-
-   <div  className=' bg-blue-950 h-screen w-[18%]'>
+<div className='w-[18%]'>
    <Sidebar/>
-  </div>
+   </div>
     <div className="w-[80%]">
     <div className='w-full flex flex-row justify-start bg-green-100'>
   <a href="/add_customer" className='text-center p-3 text-lg font-300 hover:bg-green-200 hover:text-green-700'>

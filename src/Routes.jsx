@@ -10,6 +10,8 @@ import AddMeter from "pages/Meters/AddMeter";
 import ViewallMeters from "pages/Meters/ViewAllMeters"
 // import { client } from "pages/Customer/client";
 import ClientProfile from "./components/ClientProfile";
+import ClientDashboard from "pages/ClientDashboard";
+import LandingPage from "pages/Landing";
 
 const Desktopregisterpage = React.lazy(() =>import("./pages/Desktopregisterpage/index"),);
 const ForgotPassword =React.lazy(() => import("./pages/ForgotPassword/Index"));
@@ -22,7 +24,9 @@ const ProjectRoutes = () => {
         <Routes>
           <Route path="/" element={<Desktoploginpage />} />
           <Route path="/client-profile" element={<ClientProfile/>} />
+          <Route path="/landing_page" element={<LandingPage/>} />
 
+<Route path="client_dashboard" element = {<ClientDashboard/>} />
           <Route path="/reset_password" element={<ResetPassword />} />
           <Route path="/add_customer" element ={<Addcustomer/>} />
           <Route path="/layout" element={<Layout/>} />
