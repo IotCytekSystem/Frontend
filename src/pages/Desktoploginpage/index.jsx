@@ -26,6 +26,7 @@ const navigate=useNavigate();
       setEmail('');
       setPassword('');
       navigate('/admin_dashboard')
+      console.log("Naviagte to dashboard");
 
     }
    });
