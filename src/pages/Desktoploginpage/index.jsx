@@ -155,6 +155,7 @@ import axios from '../../axiosConfig';
 import { useDispatch } from 'react-redux';
 import { loginUser } from "store/userSlice";
 import { useNavigate } from "react-router-dom";
+import video from "../../assets/videos/cytek.mp4"
 
 const DesktoploginpagePage = () => {
   const [email, setEmail] = useState("");
@@ -187,23 +188,22 @@ const DesktoploginpagePage = () => {
         alt="play"
       />
       <div className="absolute bg-custom_blue-500 flex flex-col inset-0 items-center justify-center w-full">
-        <div className="flex flex-col md:flex-row gap-[69px] items-center justify-start md:px-5 w-[95%] md:w-full">
-          <div className="relative w-[100%] md:w-[64%]">
-            <Img
-              className="absolute h-screen inset-0 justify-center m-auto object-cover rounded-br-[40px] rounded-tr-[40px] w-full"
-              src="images/img_rectangle12.png"
-              alt="rectangleThirteen"
-            />
-            <div className="absolute bg-white-A700_19 flex flex-col h-max inset-0 items-center justify-center m-auto p-[17px] rounded-[50%] w-20">
-              <Img
-                className="h-[46px] w-[46px]"
-                src="images/img_play.svg"
-                alt="play_One"
-              />
-            </div>
-            <div className="absolute bg-blue_gray-100_26 h-[400px] inset-0 justify-center m-auto"></div>
+        <div className=" flex md:flex-row gap-[69px] items-center justify-start md:px-5 w-[95%] md:w-full">
+        <div className="  sm:hidden flex w-[60vw] h-[90vh] ">
+          <video
+        className=" object-cover top-0 w-[58vw] h-[88vh] rounded-lg left-0 z-0"
+        autoPlay
+        loop
+        muted
+      >
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+       
+            {/* <div className="absolute bg-blue_gray-100_26 h-[400px] inset-0 justify-center m-auto"></div> */}
           </div>
-          <div className="bg-custom_blue-500 flex flex-col font-poppins items-center justify-start mx-auto">
+          <div className="bg-custom_blue-500 border border-1 rounded-lg p-3 border-yellow-500 flex flex-col font-poppins items-center justify-start mx-auto">
             <div className="mb-6">
               <img src={logo} alt="Logo" className="logo" />
             </div>
@@ -241,8 +241,9 @@ const DesktoploginpagePage = () => {
                 </div>
               </div>
               <div className="flex justify-center mt-3">
-                <button type="submit" className="text-white-A700 items-center bg-yellow-500 px-4 py-2 hover:bg-yellow-300 rounded-[26px] shadow-bs">
-                  <Link to="/admin_dashboard">Login</Link>
+                <button onClick={handleLogin} type="submit" className="text-white-A700 items-center bg-yellow-500 px-4 py-2 hover:bg-yellow-300 rounded-[26px] shadow-bs">
+                 login
+                 
                 </button>
               </div>
             </form>

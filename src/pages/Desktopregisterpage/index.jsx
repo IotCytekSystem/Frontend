@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Img, Input, Line, Text } from "components";
 import logo from "../../assets/image/logo.png";
 import axios from "../../axiosConfig";
+import video from "../../assets/videos/cytek.mp4"
 
 const DesktopRegisterPage = () => {
   
@@ -61,24 +62,23 @@ const DesktopRegisterPage = () => {
           src="images/img_play_white_a700.svg"
           alt="play"
         />
-        <div className="absolute bg-custom_blue-500 flex flex-col h-full inset-[0] items-start justify-center m-auto w-full">
-          <div className="flex md:flex-col flex-row md:gap-10 gap-[69px] items-center justify-start md:px-5 w-[95%] md:w-full">
-            <div className="h-[900px] relative w-[64%] md:w-full">
-              <Img
-                className="absolute h-[900px] inset-[0] justify-center m-auto object-cover rounded-br-[40px] rounded-tr-[40px] w-full"
-                src="images/img_rectangle12.png"
-                alt="rectangleThirteen"
-              />
-              <div className="absolute bg-white-A700_19 flex flex-col h-max inset-[0] items-center justify-center m-auto p-[17px] rounded-[50%] w-20">
-                <Img
-                  className="h-[46px] w-[46px]"
-                  src="images/img_play.svg"
-                  alt="play_One"
-                />
-              </div>
-              <div className="absolute bg-blue_gray-100_26 h-[900px] inset-[0] justify-center m-auto w-full"></div>
-            </div>
-            <div className="flex flex-col gap-[29px] justify-start w-[32%] md:w-full">
+        <div className="absolute bg-custom_blue-500 flex flex-col inset-0 items-center justify-center w-full">
+          <div className="flex md:flex-row gap-[69px] items-center justify-start md:px-5 w-[95%] md:w-full">
+          <div className="  sm:hidden flex w-[60vw] h-[110vh] ">
+          <video
+        className=" object-cover top-0 w-[58vw] h-[108vh] rounded-lg left-0 z-0"
+        autoPlay
+        loop
+        muted
+      >
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+       
+            {/* <div className="absolute bg-blue_gray-100_26 h-[400px] inset-0 justify-center m-auto"></div> */}
+          </div>
+            <div className="bg-custom_blue-500 border border-1 rounded-lg p-3 border-yellow-500 flex flex-col font-poppins items-center justify-start mx-auto">
               <div className="flex justify-center">
                 <img src={logo} alt="Logo" className="logo" />
                 {/* Your login form */}
