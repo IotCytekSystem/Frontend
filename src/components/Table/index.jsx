@@ -201,6 +201,7 @@
 // export default Table;
 import React, { useState, useEffect } from 'react';
 import axios from '../../axiosConfig';
+import { CgCalendarDates } from 'react-icons/cg';
 
 const Table = ({ data, timestamp }) => {
   const [loading, setLoading] = useState(true);
@@ -224,8 +225,16 @@ const Table = ({ data, timestamp }) => {
   }, []);
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full">
+    <div className="w-full">
+   <div className='flex flex-row justify-start'> 
+
+   <h1 className='bg-blue-800 flex justify-center'>
+<CgCalendarDates/>
+</h1>
+    <span className="font-semibold bg-blue-300 w-full">{realtime.date}</span>
+  
+    </div>
+      <table className="w-full">
         {/* Table headers */}
         <thead>
           <tr>
@@ -292,13 +301,13 @@ const Table = ({ data, timestamp }) => {
           </tr>
         </tbody>
       </table>
-      <div className="mt-4 text-center">
-        <span className="font-semibold">{realtime.day}</span>
-        <span className="font-semibold">{realtime.date}</span>
+      <div className="mt-4 text-center text-blue-300">
+        <span className="font-semibold mr-2">{realtime.day}</span>
+        
         <span className="font-semibold">{realtime.time}</span>
       </div>
     </div>
+
   );
 };
-
 export default Table;

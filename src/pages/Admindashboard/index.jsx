@@ -177,7 +177,7 @@ const Admindashboard = () => {
        {/* </div> */}
       
           
-       <div className="flex flex-1 flex-col items-center justify-start md:mt-0 mt-[20px] w-full">
+       <div className="flex  flex-col items-center justify-start md:mt-0 mt-[15px] w-full">
             <div className="flex flex-row  items-center justify-between w-full">
               <div className="flex flex-col gap-[7px] items-start justify-start">
                 <Text
@@ -333,12 +333,12 @@ const Admindashboard = () => {
                         </div>
                         
           
-            <div className="vertical-container  flex flex-col p-[10px] w-[40%]">
+            <div className="vertical-container  flex flex-col p-[10px] w-[100%]">
             
     
             
             {/* Analysis card */}
-              <div className="flex flex-col pt-[80px] bg-transparent rounded-lg">
+              <div className="flex flex-col pt-[75px] bg-transparent rounded-lg">
                 {/* Peak power */}
              <List 
              className=" flex   flex-row w-full"
@@ -365,7 +365,7 @@ const Admindashboard = () => {
                 <div className=" bg-white-A700 h-30 w-[80%]  mt-[-4] gap-3 rounded-xl border border-blue-300 rounded-xl shadow-lg ring-red-600 p-1">
                   <div className="flex flex-col items-center ">
                   <img className="h-6 w-6 mt-1 " src={energy} alt=""/>
-                  <span className=" bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center p-1">Energy</span>
+                  <span className=" bg-clip-text bg-gradient  text-[11.26px] text-blue-300  text-opacity-40 text-center p-1">Energy Consumption</span>
                   </div>
                   <div className="text-center text-green-500">{current[0]}<span className="text-green-400 pl-2">kWh</span></div>
 
