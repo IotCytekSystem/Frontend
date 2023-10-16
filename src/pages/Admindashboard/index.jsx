@@ -374,7 +374,7 @@ const Admindashboard = () => {
                 </div>
                 </List>
 
-      <div className="  bg-white-A700 rounded-lg  mt-12 w-full border border-blue-300">
+      <div className="  bg-white-A700 rounded-lg  mt-12 w-[100%] border border-blue-300">
       <h1 > </h1>
       <Table className="text-sm " data={tableData} timestamp={timestamp} />
     </div>

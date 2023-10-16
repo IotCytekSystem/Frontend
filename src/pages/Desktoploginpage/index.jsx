@@ -118,7 +118,8 @@ const navigate=useNavigate();
           <button  type="submit" >
           
         <div className="text-white-A700 items-center bg-yellow-500 px-4 py-2 mx-auto  hover:bg-yellow-300 rounded-[26px] shadow-bs">  
-      Login
+     
+      <Link to="/admin_dashboard"> Login</Link>
         </div>
        
           </button>
