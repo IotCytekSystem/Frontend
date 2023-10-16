@@ -165,16 +165,18 @@ const DesktoploginpagePage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    let userCredentials = {
-      email, password
-    };
-    dispatch(loginUser(userCredentials)).then((result) => {
-      if (result.payload) {
-        setEmail('');
-        setPassword('');
-        navigate('/admin_dashboard');
-      }
-    });
+   let userCredentials={
+    email,password
+   };
+   dispatch(loginUser(userCredentials)).then((result)=>{
+    if (result.payload){
+      setEmail('');
+      setPassword('');
+      navigate('/admin_dashboard')
+      console.log("Naviagte to dashboard");
+
+    }
+   });
   };
 
   return (

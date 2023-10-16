@@ -207,9 +207,15 @@ const Table = ({ data, timestamp }) => {
   const [loading, setLoading] = useState(true);
   const [realtime, setRealtime] = useState([]);
 
-  const totalVoltage = realtime.redVoltage + realtime.blueVoltage + realtime.yellowVoltage;
+  const totalVoltagebeforetruncate = realtime.redVoltage + realtime.blueVoltage + realtime.yellowVoltage;
   const totalCurrent = realtime.redCurrent + realtime.blueCurrent + realtime.yellowCurrent;
   const totalPower = realtime.redPower + realtime.bluePower + realtime.yellowPower;
+
+// Truncate to 2 decimal places
+const totalVoltage = Math.round(totalVoltagebeforetruncate * 100) / 100;
+
+
+
 
   useEffect(() => {
     const fetchUserData = async () => {
