@@ -17,7 +17,7 @@ import Table from "components/Table";
 import axios from '../../axiosConfig';
 import '../../styles/index.css'; // Import your CSS file.
 
-
+import { useSelector } from 'react-redux';
 import Sidebar from "components/Sidebar";
 import { Link } from "react-router-dom";
 
@@ -27,8 +27,8 @@ import { Link } from "react-router-dom";
 
 
 const Admindashboard = () => {
-
-  const [name, setName] = useState('');
+  const user = useSelector((state) => state.user);
+  const [name, setName] = useState(user?.id || '');
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -53,10 +53,10 @@ const Admindashboard = () => {
 
 
 
-  useEffect(() => {
-    // Simulating a client login
-    setName('James');
-  }, []);
+  // useEffect(() => {
+  //   // Simulating a client login
+  //   setName('James');
+  // }, []);
   useEffect(() => {
     // Define a function to fetch user data from the server
     const fetchUserData = async () => {

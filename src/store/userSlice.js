@@ -3,15 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from "../axiosConfig"
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const loginUser =createAsyncThunk(
+export const loginUser = createAsyncThunk(
     'user/loginUser',
-    async(userCredentials)=>{
-       const request=await axios.post("/login",userCredentials);
-       const response=await request.data.data;
-       localStorage.setItem("user",JSON.stringify(response)) 
-       return response;
+    async (userCredentials) => {
+      const request = await axios.post("/login", userCredentials);
+      const response = await request.data;
+      localStorage.setItem("user", JSON.stringify(response));
+      return response; // You should return the entire response, not just response.data
     }
-);
+  );
+  
 
 const userSlice = createSlice(
    
