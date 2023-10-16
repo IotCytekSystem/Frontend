@@ -69,6 +69,13 @@ const Addcustomer = () => {
   const handletownChange= (event) => {
     settown(event.target.value);
   };
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function handleButtonClick() {
+    setIsMenuOpen(!isMenuOpen); // Toggle the menu state
+  }
+
  
   const sendRequest = async () => {
     try {
@@ -124,25 +131,52 @@ const Addcustomer = () => {
     
     <div className="flex flex-row">
 
-    {/* <div className="w-[18%]"> */}
 
+    <div className="w-[18%] sm:hidden md:flex"> 
+       <Sidebar 
+
+       />
+       </div>
+       {/* MOBILE MENU */}
+       <div className="sm:flex hidden">
+
+<button onClick={handleButtonClick}>
+
+</button>
+   
+    {isMenuOpen ? (
+<div className="menu">
+<ul>
+       <li onClick={handleButtonClick}>
+       <Link to="/admin_dashboard">Dashboard</Link>
+     
+       </li>
+       <li onClick={handleButtonClick}>
+       <Link to="add_customer">Customer</Link>
+       </li>
+       <li onClick={handleButtonClick}>
+       <Link to="/add_meter">Meters</Link>
+       </li>
+       <li onClick={handleButtonClick}>
+       <Link to="/edit_profile">Profile</Link>
+       </li> 
+       <li onClick={handleButtonClick}>Settings</li>
+       </ul>
+</div>
+) : (
+<button onClick={handleButtonClick} className="closed-menu">
+<div className="hamburger-icon">&#9776;</div>
+</button>
+)}
+</div>
+   
 
    
-     <Sidebar/>
-      {/* </div> */}
-    
-
-      {/* Your content */}
    
 <div className=" bg-lime-50 flex flex-col font-poppins items-start justify-start mx-2 w-[80%]">
 
 
-{/* <div className="flex flex-row justify center bg-green-100 w-full" >
-    <div className='text-center p-3 text-lg font-500 bg-green-500'> Add Customer 
-    </div>
-    <div className='text-center p-3 text-lg font-500 '> Customer
-    </div>
-        </div> */}
+
 
         <div className="flex flex-row justify-start bg-green-100 w-full">
   <a href="/add_customer" className="text-center p-3 text-lg font-500 hover:bg-green-700">
@@ -174,7 +208,7 @@ const Addcustomer = () => {
               <input
                name="name"
                placeholder="Enter Name"
-               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[30%]"
+               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="name"
                value={name}
@@ -193,7 +227,7 @@ const Addcustomer = () => {
               <input
                name="phone"
                placeholder="Enter Phone Number"
-               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[30%]"
+               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="phone"
                value={phone}
@@ -212,7 +246,7 @@ const Addcustomer = () => {
               <input
                name="country"
                placeholder="Enter country Number"
-               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[30%]"
+               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="country"
                value={country}
@@ -231,7 +265,7 @@ const Addcustomer = () => {
               <input
                name="county"
                placeholder="Enter county Number"
-               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-leftw-[30%]"
+               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="county"
                value={county}
@@ -250,7 +284,7 @@ const Addcustomer = () => {
               <input
                name="town"
                placeholder="Town"
-               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[30%]"
+               className="leading-[normal] p-0 placeholder:text-grey-50 text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="town"
                value={town}
@@ -270,7 +304,7 @@ const Addcustomer = () => {
               <input
                name="email"
                placeholder="Enter your email address"
-               className="leading-[normal] p-0  border border-transparent placeholder:text-grey-50 text-base text-left w-[30%]"
+               className="leading-[normal] p-0  border border-transparent placeholder:text-grey-50 text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="email"
                value={email}
@@ -289,7 +323,7 @@ const Addcustomer = () => {
               <input
                name="password"
                placeholder="Enter password"
-               className="leading-[normal] p-0 placeholder:text-grey-50 border border-transparent text-base text-left w-[30%]"
+               className="leading-[normal] p-0 placeholder:text-grey-50 border border-transparent text-base text-left w-[100%]"
                wrapClassName="flex w-full"
                type="password"
                value={password}
@@ -321,22 +355,15 @@ const Addcustomer = () => {
               </div>
             </div>
           </div>
-          {/* <div className="flex flex-row items-start justify-between mt-4 w-full">
-       
-            <Text
-              className="text-grey-50 text-xs"
-              size="txtPoppinsLight12"
-            >
-            </Text>
-          </div> */}
-         <div className="flex flex-row ml-10 w-full  ">
-          <Button onClick={sendRequest} className="cursor-pointer font-medium leading-[normal] min-w-[50px] sm:min-w-full mt-[40px] rounded-[15px] text-[17px] text-center">
+     
+         <div className="flex flex-row ml-10 w-[20]  ">
+          <Button onClick={sendRequest} className="cursor-pointer font-medium  min-w-[50px]  mt-[40px] rounded-[15px] text-[14px] text-center">
         
          
          <Link to="/view_allcustomer">Add Customer</Link>
 
           </Button>
-          <Button onClick={sendRequest} className="cursor-pointer font-medium leading-[normal] min-w-[50px] sm:min-w-full mt-[40px] rounded-[15px] ml-5 text-[17px] text-center">
+          <Button onClick={sendRequest} className="cursor-pointer font-medium  min-w-[50px]  mt-[40px] rounded-[15px] ml-5 text-[17px] text-center">
         
         Cancel
          </Button>

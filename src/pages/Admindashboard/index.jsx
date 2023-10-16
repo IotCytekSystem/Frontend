@@ -134,9 +134,8 @@ const Admindashboard = () => {
       <div className="flex md:flex-col flex-row md:gap-[43px] items-start justify-between mx-auto md:px-5 w-full">
       {/* <div className="!sticky ml-[-16px] bg-indigo-950 flex flex-col justify-start flex-col h-screen overflow-auto   "> */}
       
-<div className="w-[18%] sm:hidden  md:flex"> 
+<div className="w-[18%] sm:hidden md:flex"> 
        <Sidebar 
-        // onClick={() => collapseSidebar(!collapsed)}
 
        />
        </div>
