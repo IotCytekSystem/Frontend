@@ -30,7 +30,8 @@ const handleLogin = async (e) => {
     if (loginUser.fulfilled.match(result)) {
       setEmail('');
       setPassword('');
-      navigate('/admin_dashboard');
+      // navigate('/admin_dashboard');
+      window.location.href = "/admin_dashboard";
       console.log("Navigate to dashboard");
     }
   } catch (error) {

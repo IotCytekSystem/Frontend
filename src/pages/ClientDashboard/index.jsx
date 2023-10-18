@@ -15,6 +15,7 @@ import energy from "../../assets/image/energy.png";
 import Current from "../../assets/image/circuit.png";
 import Table from "components/Table";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import ClientSidebar from "../../components/ClientSideBar"
 
@@ -99,7 +100,9 @@ const ClientDashboard= () => {
         <div className="absolute top-12 right-0 bg-white border rounded shadow-md   ">
           <ul className=" flex flex-col  items-center bg-white-A700 p-1 w-[8vw] h-[12vh] justify-between">
             <li>
-              <button onClick={handleViewSettings}>Profile</button>
+              <button onClick={handleViewSettings}>
+               <Link to="/profile">Profile </Link>
+              </button>
             </li>
             <li>
               <button onClick={handleViewSettings}>Change password</button>

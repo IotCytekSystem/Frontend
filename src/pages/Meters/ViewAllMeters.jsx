@@ -5,6 +5,7 @@ import profile from "../../assets/image/profile.png"
 import { useEffect } from 'react';
 import CircularProgressBar from 'components/CircularProgressBar';
 import axios from '../../axiosConfig';
+import { Link } from 'react-router-dom';
 
 
   // Add more customer data here
@@ -74,8 +75,8 @@ const ViewAllCustomer= () => {
 
   return ( 
     <div >
-      <div className=' flex bg-green-50 justify-between px-3'>
-      <div className=' p-2 flex align-middle'> 
+      <div className=' flex bg-green-50 justify-between '>
+      <div className='  flex align-middle'> 
       <div className="login-container  h-12 w-12 ">
 <img src={logo} alt="Logo" className="logo  h-12 w-12"  />
 </div>
@@ -91,7 +92,10 @@ const ViewAllCustomer= () => {
         <div className="absolute top-12 right-0 bg-white border rounded shadow-md   ">
           <ul className=" flex flex-col  items-center bg-white-A700 p-1 w-[8vw] h-[12vh] justify-between">
             <li>
-              <button onClick={handleViewSettings}>Profile</button>
+              <button onClick={handleViewSettings}>
+              <Link to="/profile">Profile </Link>
+   
+              </button>
             </li>
             <li>
               <button onClick={handleViewSettings}>Change password</button>
@@ -131,22 +135,22 @@ const ViewAllCustomer= () => {
       <table className=" h-screen w-full border border-gray-200">
         <thead>
           <tr>
-            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <th className=" bg-gray-50 text-center text-xs  font-medium text-gray-500 uppercase ">
               SN
             </th>
-            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <th className=" bg-gray-50 text-center text-xs  font-medium text-gray-500 uppercase ">
               Mac_Address
             </th>
-            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <th className=" bg-gray-50 text-center text-xs  font-medium text-gray-500 uppercase ">
             Status
             </th>
-            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <th className=" bg-gray-50 text-center text-xs  font-medium text-gray-500 uppercase ">
               Version
             </th>
-            <th className="px-2 py-2 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <th className=" bg-gray-50 text-center text-xs  font-medium text-gray-500 uppercase ">
              Date
             </th>
-            <th className="px-1 py-2 bg-gray-50 text-left text-xs leading-4 font-sm text-gray-500 uppercase tracking-wider">
+            <th className=" bg-gray-50 text-center text-xs  font-sm text-gray-500 uppercase ">
              Actions
             </th>
           </tr>
@@ -154,15 +158,15 @@ const ViewAllCustomer= () => {
         <tbody className="bg-white border border-gray-200">
           {meter.map((meter) => (
             <tr key={meter.id}>
-              <td className="px-2 py-1 whitespace-no-wrap">{meter.serialNumber}</td>
-              <td className="px-2 py-1 whitespace-no-wrap">{meter.macAddress}</td>
-              <td className="px-2 py-1 whitespace-no-wrap">{meter.status}</td>
-              <td className="px-2 py-1 whitespace-no-wrap">{meter.version}</td>
-              <td className="px-2 py-1 whitespace-no-wrap">{meter.date}</td>
+              <td className=" whitespace-no-wrap">{meter.serialNumber}</td>
+              <td className=" whitespace-no-wrap">{meter.macAddress}</td>
+              <td className=" whitespace-no-wrap">{meter.status}</td>
+              <td className=" whitespace-no-wrap">{meter.version}</td>
+              <td className=" whitespace-no-wrap">{meter.date}</td>
               <td>
-              <div className='flex flex-row space-x-1 '>
+              <div className='flex flex-row '>
     
-        <button className=' text-white-A700 bg-green-500 py-1 px-1 rounded hover:bg-green-200'> Edit</button>
+        <button className=' text-white-A700 bg-green-500 py-1 px-1 rounded hover:bg-green-100'> Edit</button>
       
       
       <button onClick={()=>deleteHandler(meter.id)}  className='text-white-A700 bg-red-500 py-1 px-1 rounded hover:bg-red-200'> Delete</button>

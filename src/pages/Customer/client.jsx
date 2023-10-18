@@ -1,10 +1,19 @@
 
-import React from 'react';
+import React,{useState} from 'react';
 import { useSelector } from 'react-redux'; // Import useSelector
 import profile from "../../assets/image/profile.png";
+import axios from "../../axiosConfig"
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
-  const clientData = useSelector((state) => state.profile); // Access Redux state
+  // const clientData = useSelector((state) => state.profile); // Access Redux state
+  const user = useSelector((state) => state.user);
+  const name = user?.id || '';
+  const email= user?.id || '';
+  const phone = user?.id || '';
+  const country = user?.id || '';
+  const county = user?.id || '';
+  const town = user?.id || '';
 
   return (
     <div className="flex flex-col items-center bg-white-A700 w-full h-screen">
@@ -17,36 +26,33 @@ const Profile = () => {
         <div className="items-center ml-10 space-y-8">
           <p className="text-2xl font-semibold">
             <span className='text-lg font-bold mr-2'>Name:</span>
-            {clientData.name}
+            {name}
           </p>
           <p className="text-gray-600">
             <span className='text-lg font-bold mr-2'>Email:</span>
-            {clientData.email}
+            {email}
           </p>
           <p className="text-gray-600">
-            <span className='text-lg font-bold mr-2'>PhoneNumber:</span>
-            {clientData.phone}
+            <span className='text-lg font-bold mr-2'>PhoneNumberbnhbvbnmn:</span>
+            {phone}
           </p>
           <p className="text-gray-600">
             <span className='text-lg font-bold mr-2'>Country:</span>
-            {clientData.country}
+            {country}
           </p>
           <p className="text-gray-600">
             <span className='text-lg font-bold mr-2'>County:</span>
-            {clientData.county}
+            {county}
           </p>
           <p className="text-gray-600">
             <span className='text-lg font-bold mr-2'>Town:</span>
-            {clientData.town}
+            {town}
           </p>
         </div>
         <div className="mt-4">
-          <button
+          <div
             className="bg-blue-500 hover-bg-blue-600 text-white font-semibold px-4 py-2 rounded-full cursor-pointer"
-            onClick={() => {
-              // Add logic for editing profile here
-              alert('Edit profile clicked');
-            }}
+            
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,8 +74,9 @@ const Profile = () => {
                 d="M19 21a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2h5l2 2h3a2 2 0 012 2v11z"
               />
             </svg>
-            Edit Profile
-          </button>
+            <Link to="/edit_profile">Edit Profile</Link>
+
+          </div>
         </div>
       </div>
     </div>

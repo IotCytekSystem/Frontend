@@ -5,6 +5,7 @@ import logo from "..//..//assets/image/logo.png"
 import profile from "..//..//assets/image/profile.png"
 import Sidebar from 'components/Sidebar';
 import axios from "../../axiosConfig";
+import { Link } from 'react-router-dom';
 
 
 const CustomerTable = () => {
@@ -99,7 +100,10 @@ useEffect(() => {
         <div className="absolute top-12 right-0 bg-white border rounded shadow-md   ">
           <ul className=" flex flex-col  items-center bg-white-A700 p-1 w-[8vw] h-[12vh] justify-between">
             <li>
-              <button onClick={handleViewSettings}>Profile</button>
+              <button onClick={handleViewSettings}>
+              <Link to="/profile">Profile </Link>
+   
+              </button>
             </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>

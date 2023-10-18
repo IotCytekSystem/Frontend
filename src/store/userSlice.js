@@ -3,6 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from "../axiosConfig"
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+const initialUser = JSON.parse(localStorage.getItem('user'));
+
+
 export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (userCredentials) => {
@@ -13,6 +16,11 @@ export const loginUser = createAsyncThunk(
     }
   );
   
+  export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
+    // Clear user data from local storage
+    localStorage.removeItem("user");
+    return null;
+  });
 
 const userSlice = createSlice(
    
@@ -20,8 +28,9 @@ const userSlice = createSlice(
         name:'user',
         initialState:{
             loadig:false,
-            user:null,
-            error:null
+            user: initialUser || null, // Set the user from local storage
+            error:null,
+            isAuth: false,
           },
           extraReducers:(builder)=>{
             builder.addCase(
@@ -30,6 +39,7 @@ const userSlice = createSlice(
                     state.loadig=true;
                     state.error=null;
                     state.user=null;
+                    state.isAuth = true;
                 }
                 )
                 .addCase(
@@ -38,6 +48,7 @@ const userSlice = createSlice(
                         state.loadig=false;
                         state.error=action.payload;
                         state.user=null;
+                        state.isAuth = false; 
                         
                     }
                     
@@ -57,6 +68,11 @@ const userSlice = createSlice(
                 }
                     
                 )
+                .addCase(logoutUser.fulfilled, (state) => {
+                    // User is logged out, clear the user state
+                    state.user = null;
+                    state.error = null;
+                  });
           }
     }
 

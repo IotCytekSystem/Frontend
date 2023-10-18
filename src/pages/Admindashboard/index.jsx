@@ -17,10 +17,12 @@ import Table from "components/Table";
 import axios from '../../axiosConfig';
 import '../../styles/index.css'; // Import your CSS file.
 
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'; // Import useSelector
 import Sidebar from "components/Sidebar";
 import { Link } from "react-router-dom";
 
+import { useDispatch } from 'react-redux'; // Import the useDispatch function from react-redux
+import { logoutUser } from '../../store/userSlice'; // Import the logoutUser action
 
 
 
@@ -28,8 +30,8 @@ import { Link } from "react-router-dom";
 
 const Admindashboard = () => {
   const user = useSelector((state) => state.user);
-  const [name, setName] = useState(user?.id || '');
-
+  const name = user.user.user?.name||"";
+  const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -41,7 +43,8 @@ const Admindashboard = () => {
   };
 
   const handleLogout = () => {
-    // Handle the "Log Out" action here
+    dispatch(logoutUser());
+    console.log("logged out");
   };
 
   const { collapseSidebar, collapsed } = useProSidebar();
@@ -117,11 +120,14 @@ const Admindashboard = () => {
         <div className="absolute top-12 right-0 bg-white border rounded shadow-md   ">
           <ul className=" flex flex-col  items-center bg-white-A700 p-1 w-[8vw] h-[12vh] justify-between">
             <li>
-              <button onClick={handleViewSettings}>Profile</button>
+              <button onClick={handleViewSettings}>
+
+              <Link to="/profile">Profile </Link>
+              </button>
             </li>
-            <li>
+            {/* <li>
               <button onClick={handleViewSettings}>Change password</button>
-            </li>
+            </li> */}
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>

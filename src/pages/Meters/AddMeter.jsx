@@ -5,6 +5,7 @@ import logo from "../../assets/image/logo.png"
 import axios from "../../axiosConfig"
 import Sidebar from "components/Sidebar";
 import profile from "..//..//assets/image/profile.png"
+import { Link } from "react-router-dom";
 
 
 
@@ -87,7 +88,10 @@ const Addmeter = () => {
         <div className="absolute top-12 right-0 bg-white border rounded shadow-md   ">
           <ul className=" flex flex-col  items-center bg-white-A700 p-1 w-[8vw] h-[12vh] justify-between">
             <li>
-              <button onClick={handleViewSettings}>Profile</button>
+              <button onClick={handleViewSettings}>
+              <Link to="/profile">Get Started </Link>
+   
+              </button>
             </li>
             <li>
               <button onClick={handleViewSettings}>Change password</button>
